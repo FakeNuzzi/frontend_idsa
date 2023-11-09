@@ -1,12 +1,11 @@
-
 import './App.css'
+import ListPazienteComponent from './components/ListPazienteComponent'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-     
+        <ListPazienteComponent />
     </>
   )
 }
