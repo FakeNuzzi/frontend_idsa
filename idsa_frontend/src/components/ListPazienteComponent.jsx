@@ -1,22 +1,30 @@
 import React, {useEffect, useState} from 'react'
-import { listAppuntamenti } from '../services/PazienteService'
+import { listPazienti } from '../services/PazienteService'
+import { useNavigate } from 'react-router-dom'
 
 
 const ListPazienteComponent = () => {
 
     const [pazienti, setPazienti] = useState([])
+
+    const navigator = useNavigate();
     
     useEffect(() => {
-        listAppuntamenti().then((response) => {
+        listPazienti().then((response) => {
             setPazienti(response.data);
         }).catch(error => {
             console.error(error);
         })
     }, [])
 
+    function addNewPaziente(){
+        navigator('/add-paziente')
+    }
+
     return (
         <div className='container'>
             <h2 className='text-center'>Lista di Pazienti</h2>
+            <button className='btn btn-primary mb-2' onClick={addNewPaziente}>Add Paziente</button>
             <table className='table table-striped table-bordered'>
                 <thead>
                     <tr>
@@ -30,14 +38,14 @@ const ListPazienteComponent = () => {
                 <tbody>
                     {
                         pazienti.map(paziente =>
-                            <tr key={paziente.id}>
-                                <td>{paziente.id}</td>
-                                <td>{paziente.Nome}</td>
-                                <td>{paziente.Cognome}</td>
-                                <td>{paziente.DataNascita}</td>
-                                <td>{paziente.CodiceFiscale}</td>
+                            <tr key={paziente.id_paziente}>
+                                <td>{paziente.id_paziente}</td>
+                                <td>{paziente.nome}</td>
+                                <td>{paziente.cognome}</td>
+                                <td>{paziente.data_n}</td>
+                                <td>{paziente.cf}</td>
                             </tr>)
-}
+                    }
                 </tbody>
             </table>
         </div>
