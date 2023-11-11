@@ -4,6 +4,7 @@ import HeaderComponent from './components/HeaderComponent'
 import ListPazienteComponent from './components/ListPazienteComponent'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import PazienteComponent from './components/PazienteComponent'
+import Home from './components/Home'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         <HeaderComponent />
           <Routes>
           {/* // http://localhost:3000 */}
-            <Route path='/' element = { <ListPazienteComponent />}></Route>
+            <Route path='/' element = { <Home />}></Route>
             {/* // http://localhost:3000/pazienti */}
             <Route path='/pazienti' element = { <ListPazienteComponent />}></Route>
             {/* // http://localhost:3000/add-paziente */}
