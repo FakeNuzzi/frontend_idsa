@@ -29,6 +29,10 @@ const ListPazienteComponent = () => {
         navigator(`/edit-paziente/${id_paziente}`)
     }
 
+    function back2Menu(){
+        navigator('/')
+    }
+
     function removePaziente(id_paziente){
         console.log(id_paziente);
         deletePaziente(id_paziente).then((response) => {
@@ -65,10 +69,12 @@ const ListPazienteComponent = () => {
                                 <td>
                                     <button className='btn btn-info' onClick={() => updatePaziente(paziente.id_paziente)}>Update</button>
                                     <button className='btn btn-danger' onClick={() => removePaziente(paziente.id_paziente)}>Delete</button>
+                                    <button className='btn btn-success' onClick={() => updatePaziente(paziente.id_paziente)}>Cartella</button>
                                 </td>
                             </tr>)
                     }
                 </tbody>
+                <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
             </table>
         </div>
     )
