@@ -181,10 +181,14 @@ const HeaderComponent = () => {
                     {navList}
                     <div className="flex items-center gap-x-1">
                         <Button fullWidth variant="text" size="sm" className="">
-                            <span>Log In</span>
+                            <span>
+                                <link to="/login" className="nav-link">login</link>
+                            </span>
                         </Button>
                         <Button fullWidth variant="gradient" size="sm" className="">
-                            <span>Sign in</span>
+                            <span>
+                                <link to="/register" className="nav-link">Register</link>
+                            </span>
                         </Button>
                     </div>
                 </div>
