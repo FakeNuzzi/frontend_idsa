@@ -6,9 +6,23 @@ import {
     Button,
     IconButton,
 } from "@material-tailwind/react";
+import { isUserLoggedIn, logout } from "../services/Authservice";
+import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const HeaderComponent = () => {
+
+    const isAuth = isUserLoggedIn();
+
+    const navigator = useNavigate();
+
+
     const [openNav, setOpenNav] = React.useState(false);
+
+    function handleLogout() {
+        logout();
+        navigator('/login')
+    }
 
     React.useEffect(() => {
         window.addEventListener(
@@ -127,15 +141,32 @@ const HeaderComponent = () => {
                 </Typography>
                 <div className="hidden lg:block">{navList}</div>
                 <div className="flex items-center gap-x-1">
+                    
                     <Button variant="text" size="sm" className="hidden lg:inline-block">
-                        <span>Log In</span>
+                        {
+                            !isAuth &&
+
+                            <NavLink to="/login" className="nav-link">login</NavLink>
+                        }
+                    </Button>
+                    <Button variant="text" size="sm" className="hidden lg:inline-block">
+                        {
+                            isAuth &&
+
+                            <NavLink to="/login" className="nav-link" onClick={handleLogout }>logout</NavLink>
+                        }
                     </Button>
                     <Button
                         variant="gradient"
                         size="sm"
                         className="hidden lg:inline-block"
                     >
-                        <span>Sign in</span>
+                        {
+                            !isAuth &&
+
+                            <NavLink to="/register" className="nav-link">Register</NavLink>
+                        }
+                        
                     </Button>
                 </div>
                 <IconButton

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { loginAPICall, storeTokn } from '../services/Authservice'
+import { loginAPICall, saveLoggedInUser, storeTokn } from '../services/Authservice'
 import { useNavigate } from 'react-router-dom';
 
 const LoginComponent = () => {
@@ -10,20 +10,18 @@ const LoginComponent = () => {
 
     const navigator = useNavigate();
 
-    function handleLoginForm(e) {
+    async function handleLoginForm(e) {
 
         e.preventDefault();
 
-        const loginObj = { email, password }
 
-        console.log(loginObj);
+        await  loginAPICall(email, password).then((response) => {
+            console.log(response.data);
 
-        const token = 'basic' + window.btoa(email + ':' + password);
-        storeTokn(token);
-
-        navigator("/")
-        loginAPICall(email, password).then((response) => {
-    console.log(response.data);
+            const token = 'basic' + window.btoa(email + ':' + password);
+            storeTokn(token);
+            saveLoggedInUser(email);
+            navigator("/")
         }).catch(error => {
             console.error(error);
         })
