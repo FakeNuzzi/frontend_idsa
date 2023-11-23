@@ -18,7 +18,8 @@ const LoginComponent = () => {
         await  loginAPICall(email, password).then((response) => {
             console.log(response.data);
 
-            const token = 'basic' + window.btoa(email + ':' + password);
+            //const token = 'basic' + window.btoa(email + ':' + password);
+            const token = 'Beaer ' + response.data.accessToken;
             storeTokn(token);
             saveLoggedInUser(email);
             navigator("/")
