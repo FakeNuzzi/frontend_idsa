@@ -7,6 +7,7 @@ import PazienteComponent from './components/PazienteComponent'
 import MenuComponent from './components/MenuComponent'
 import ListMedicoComponent from './components/ListMedicoComponent'
 import MedicoComponent from './components/MedicoComponent'
+import Homepage from './components/Homepage'
 
 function App() {
 
@@ -14,9 +15,11 @@ function App() {
     <>
       <BrowserRouter>
         <HeaderComponent />
-          <Routes>
-          {/* // http://localhost:3000 */}
-            <Route path='/' element = { <MenuComponent />}></Route>
+        <Routes>
+            {/* // http://localhost:3000 */}
+            <Route path='/' element={<Homepage />}></Route>
+            {/* // http://localhost:3000/hr */}
+            <Route path='/menuComponent' element = { <MenuComponent />}></Route>
             {/* // http://localhost:3000/pazienti */}
             <Route path='/pazienti' element = { <ListPazienteComponent />}></Route>
             {/* // http://localhost:3000/add-paziente */}

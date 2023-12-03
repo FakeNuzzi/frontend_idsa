@@ -30,7 +30,7 @@ const ListPazienteComponent = () => {
     }
 
     function back2Menu(){
-        navigator('/')
+        navigator('/MenuComponent')
     }
 
     function removePaziente(id_paziente){

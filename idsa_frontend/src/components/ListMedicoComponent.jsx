@@ -30,7 +30,7 @@ const ListMedicoComponent = () => {
     }
 
     function back2Menu(){
-        navigator('/')
+        navigator('/MenuComponent')
     }
 
     function removeMedico(id_medico){
