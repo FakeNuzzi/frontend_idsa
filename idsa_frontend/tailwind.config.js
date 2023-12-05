@@ -2,8 +2,14 @@
 export default {
   content: ["./index.html","./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+          extend: {
+              gridTemplateRows: {
+                  '[auto,auto,1fr]': 'auto auto 1fr',
+              },
+          },
+      },
+      plugins: [
+          
+      ],
+  }
 
