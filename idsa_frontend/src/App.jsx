@@ -12,6 +12,7 @@ import VisualizzaPaziente from './components/VisualizzaPaziente'
 import VisualizzaMedico from './components/VisualizzaMedico'
 import VisualizzaVisita from './components/VisualizzaVisita'
 import VisualizzaCartella from './components/VisualizzaCartella'
+import ListaAppuntamentiPaziente from './components/ListaAppuntamentiPaziente'
 
 function App() {
 
@@ -40,10 +41,12 @@ function App() {
             <Route path='/visualizzaPaziente/:idPaziente' element={<VisualizzaPaziente />}></Route>
             {/* // http://localhost:3000/visualizzaMedico/1 */}
             <Route path='/visualizzaMedico/:idMedico' element={<VisualizzaMedico />}></Route>
-                  {/* // http://localhost:3000/visualizzaVisita/1 */}
-                  <Route path='/visualizzaVisista/:idVisita' element={<VisualizzaVisita />}></Route>
-                  {/* // http://localhost:3000/visualizzaCartela/1 */}
-                  <Route path='/visualizzaCartella/:idVisita' element={<VisualizzaCartella />}></Route>
+            {/* // http://localhost:3000/visualizzaVisita/1 */}
+            <Route path='/visualizzaVisista/:idVisita' element={<VisualizzaVisita />}></Route>
+            {/* // http://localhost:3000/visualizzaCartella/1 */}
+            <Route path='/visualizzaCartella/:idVisita' element={<VisualizzaCartella />}></Route>
+            {/* // http://localhost:3000/listaAppuntamentiPaziente */}
+            <Route path='/listaAppuntametiPaziente' element={<ListaAppuntamentiPaziente />}></Route>
           </Routes>
         <FooterComponent />
       </BrowserRouter>
