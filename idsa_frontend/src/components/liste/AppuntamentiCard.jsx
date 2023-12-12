@@ -3,7 +3,7 @@ import {Grid } from '@mui/material'
 
 const AppuntamentiCard = () => {
     return (
-        <div className='p-5 shadow-lg hover:shadow-2x1 border'>
+        <div className='p-5 shadow-md shadow-black hover:shadow-2x1 border'>
             <Grid container spacing={2} sx={{justifyContent:"space-between"} }>
                 <Grid item xs={6}>
                     <div className='flex cursor-pointer'>

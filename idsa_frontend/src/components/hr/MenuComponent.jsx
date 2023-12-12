@@ -14,7 +14,7 @@ const MenuComponent = () => {
 
     return (
         <div className="container">
-            <h2 className="text-center">Scegli l'entità</h2>
+            <h2 className="text-center">Scegli la entità</h2>
             <button className='btn btn-primary mb-2' onClick={menuPaziente}>Paziente</button>
             <button className='btn btn-danger mb-2' onClick={menuMedici}>Medico</button>
         </div>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { listMedici, deleteMedico } from '../services/MedicoService'
+import { listMedici, deleteMedico } from '../../hrServices/MedicoService'
 import { useNavigate } from 'react-router-dom'
 
 

@@ -5,7 +5,7 @@ import AppuntamentiCard from './AppuntamentiCard'
 
 
 
-const ListaAppuntamentiPaziente = () => {
+const AppuntamentiPaziente = () => {
     const orderStatus = [
         { lable: "in arrivo", value: "inArrivo" },
         { lable: "spedito", value: "spedito" },
@@ -14,7 +14,7 @@ const ListaAppuntamentiPaziente = () => {
     ]
 
     return (
-        <div className='container'>
+        <div>
             <Grid container sx={{justifyContent: "space-between"} }>
                 <Grid item xs={2.5}>
                     <div className='h-auto shadow-lg bg-white p-5 sticky top-5'>
@@ -42,4 +42,4 @@ const ListaAppuntamentiPaziente = () => {
     )
 }
 
-export default ListaAppuntamentiPaziente
+export default AppuntamentiPaziente

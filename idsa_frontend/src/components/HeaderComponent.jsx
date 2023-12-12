@@ -7,7 +7,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: 'Utente', href: '/listaAppuntamentiPaziente', current: true },
+    { name: 'Utente', href: '/AppuntamentiPaziente', current: true },
     { name: 'Admin', href: '/MenuComponent', current: false },
     { name: 'HR', href: '#', current: false },
     { name: 'Medico', href: '#', current: false },

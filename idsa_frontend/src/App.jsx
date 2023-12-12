@@ -1,18 +1,18 @@
 import './App.css'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
-import ListPazienteComponent from './components/ListPazienteComponent'
+import ListPazienteComponent from './components/hr/ListPazienteComponent'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import PazienteComponent from './components/PazienteComponent'
-import MenuComponent from './components/MenuComponent'
-import ListMedicoComponent from './components/ListMedicoComponent'
-import MedicoComponent from './components/MedicoComponent'
-import Homepage from './components/Homepage'
-import VisualizzaPaziente from './components/VisualizzaPaziente'
-import VisualizzaMedico from './components/VisualizzaMedico'
-import VisualizzaVisita from './components/VisualizzaVisita'
-import VisualizzaCartella from './components/VisualizzaCartella'
-import ListaAppuntamentiPaziente from './components/ListaAppuntamentiPaziente'
+import PazienteComponent from './components/hr/PazienteComponent'
+import MenuComponent from './components/hr/MenuComponent'
+import ListMedicoComponent from './components/hr/ListMedicoComponent'
+import MedicoComponent from './components/hr/MedicoComponent'
+import Homepage from './components/home/Homepage'
+import VisualizzaPaziente from './components/viste/VisualizzaPaziente'
+import VisualizzaMedico from './components/viste/VisualizzaMedico'
+import VisualizzaVisita from './components/viste/VisualizzaVisita'
+import VisualizzaCartella from './components/liste/VisualizzaCartella'
+import AppuntamentiPaziente from './components/liste/AppuntamentiPaziente'
 
 function App() {
 
@@ -45,8 +45,8 @@ function App() {
             <Route path='/visualizzaVisista/:idVisita' element={<VisualizzaVisita />}></Route>
             {/* // http://localhost:3000/visualizzaCartella/1 */}
             <Route path='/visualizzaCartella/:idVisita' element={<VisualizzaCartella />}></Route>
-            {/* // http://localhost:3000/listaAppuntamentiPaziente */}
-            <Route path='/listaAppuntametiPaziente' element={<ListaAppuntamentiPaziente />}></Route>
+            {/* // http://localhost:3000/appuntamentiPaziente */}
+            <Route path='/appuntamentiPaziente' element={<AppuntamentiPaziente />}></Route>
           </Routes>
         <FooterComponent />
       </BrowserRouter>
