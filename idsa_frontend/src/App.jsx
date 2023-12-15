@@ -13,6 +13,7 @@ import VisualizzaMedico from './components/viste/VisualizzaMedico'
 import VisualizzaVisita from './components/viste/VisualizzaVisita'
 import VisualizzaCartella from './components/liste/VisualizzaCartella'
 import AppuntamentiPaziente from './components/liste/AppuntamentiPaziente'
+import MenuVisite from './components/liste/menuVisite'
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
             <Route path='/pazienti' element = { <ListPazienteComponent />}></Route>
             {/* // http://localhost:3000/add-paziente */}
             <Route path='/add-paziente' element = { <PazienteComponent/> }></Route>
-            {/* // http://localhost:3000/edit-paziente/1 */}
+            {/* // http://localhost:3000/edit-paziente */}
             <Route path='/edit-paziente/:id_paziente' element = { <PazienteComponent/> }></Route>
             {/* // http://localhost:3000/medici */}
             <Route path='/medici' element = { <ListMedicoComponent />}></Route>
@@ -42,11 +43,13 @@ function App() {
             {/* // http://localhost:3000/visualizzaMedico/1 */}
             <Route path='/visualizzaMedico/:idMedico' element={<VisualizzaMedico />}></Route>
             {/* // http://localhost:3000/visualizzaVisita/1 */}
-            <Route path='/visualizzaVisista/:idVisita' element={<VisualizzaVisita />}></Route>
-            {/* // http://localhost:3000/visualizzaCartella/1 */}
-            <Route path='/visualizzaCartella/:idVisita' element={<VisualizzaCartella />}></Route>
+            <Route path='/visualizzaVisita/:idVisita' element={<VisualizzaVisita />}></Route>
+            {/* // http://localhost:3000/visualizzaCartella */}
+            <Route path='/visualizzaCartella' element={<VisualizzaCartella />}></Route>
             {/* // http://localhost:3000/appuntamentiPaziente */}
             <Route path='/appuntamentiPaziente' element={<AppuntamentiPaziente />}></Route>
+            {/* // http://localhost:3000/menuVisite */}
+            <Route path='/menuVisite' element={<MenuVisite />}></Route>
           </Routes>
         <FooterComponent />
       </BrowserRouter>

@@ -2,8 +2,12 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import AppuntamentiCard from './AppuntamentiCard'
+import { useNavigate } from 'react-router-dom'
 
-
+/*
+questa è la homepage del utente base , al momento contiene un filtro per gli appuntamenti
+la lista degli appuntamenti futuri e una serie di pulsanti che vanno alle altre pagine accessibili dal utente 
+*/
 
 const AppuntamentiPaziente = () => {
     const orderStatus = [
@@ -13,6 +17,16 @@ const AppuntamentiPaziente = () => {
         { lable: "ritornato", value: "ritornato" },
     ]
 
+    const navigator = useNavigate();
+
+    function prenotaVisita() {
+        navigator(`/menuVisite`)
+    }
+
+    function visualizzaReferti() {
+        navigator(`/visualizzaCartella`)
+    }
+
     return (
         <div>
             <Grid container sx={{justifyContent: "space-between"} }>
@@ -21,7 +35,7 @@ const AppuntamentiPaziente = () => {
                         <h1 className='font-bold text-lg'>Filter</h1>
     
                         <div className='spacy-y-4 mt-10'>
-                            <h1 className='font-semibold'>ORDER STATUS</h1>
+                            <h1 className='font-semibold text-lg'>I TUOI APPUNTAMENTI</h1>
                             {orderStatus.map((option) => <div key={option.lable} className='flex items-center'>
                                 <input  defaultValue={option.value} type="checkbox" className='h-4 w-4 border-grey-300 text-indigo-600 focus:ring-indigo-500' />
 
@@ -29,7 +43,10 @@ const AppuntamentiPaziente = () => {
                                     {option.lable}
                                 </label>
                             </div>)}
+                            <button className='btn btn-info space-y-15 mt-10' onClick={() => prenotaVisita()}>prenota visita</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaReferti()}>visualizza referti</button>
                         </div>
+                        
                     </div>
                 </Grid>
                 <Grid item xs={9}>
