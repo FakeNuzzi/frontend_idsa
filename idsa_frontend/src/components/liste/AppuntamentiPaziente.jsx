@@ -27,6 +27,10 @@ const AppuntamentiPaziente = () => {
         navigator(`/visualizzaCartella`)
     }
 
+    function visualizzaProfilo() {
+        navigator(`/edit-paziente/1`)
+    }
+
     return (
         <div>
             <Grid container sx={{justifyContent: "space-between"} }>
@@ -45,6 +49,7 @@ const AppuntamentiPaziente = () => {
                             </div>)}
                             <button className='btn btn-info space-y-15 mt-10' onClick={() => prenotaVisita()}>prenota visita</button>
                             <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaReferti()}>visualizza referti</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaProfilo()}>visualizza profilo</button>
                         </div>
                         
                     </div>

@@ -32,7 +32,12 @@ const AppuntamentiCard = () => {
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(visita.id_medico)}>visualizza medico</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(visita.id_medico)}>paga</button>
+                        </span>
+                    </p>
+                    <p>
+                        <span>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(1)}>visualizza medico</button>
                         </span>
                     </p>
                 </Grid>

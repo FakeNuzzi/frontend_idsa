@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material'
-import AppuntamentiCard from './AppuntamentiCardMedico'
+import AppuntamentiCardMedico from './AppuntamentiCardMedico'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -12,6 +13,13 @@ const AppuntamentiMedico = () => {
         { lable: "ritornato", value: "ritornato" },
     ]
 
+    const navigator = useNavigate();
+
+
+    function visualizzaProfilo() {
+        navigator(`/edit-medico/1`)
+    }
+
     return (
         <div>
             <Grid container sx={{ justifyContent: "space-between" }}>
@@ -20,7 +28,7 @@ const AppuntamentiMedico = () => {
                         <h1 className='font-bold text-lg'>Filter</h1>
 
                         <div className='spacy-y-4 mt-10'>
-                            <h1 className='font-semibold'>ORDER STATUS</h1>
+                            <h1 className='font-semibold text-lg'>I TUOI APPUNTAMENTI</h1>
                             {orderStatus.map((option) => <div key={option.lable} className='flex items-center'>
                                 <input defaultValue={option.value} type="checkbox" className='h-4 w-4 border-grey-300 text-indigo-600 focus:ring-indigo-500' />
 
@@ -28,12 +36,15 @@ const AppuntamentiMedico = () => {
                                     {option.lable}
                                 </label>
                             </div>)}
+                 
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaProfilo()}>visualizza profilo</button>
                         </div>
+
                     </div>
                 </Grid>
                 <Grid item xs={9}>
                     <div className='space-y-5'>
-                        {[1, 1, 1, 1, 1].map((item) => <AppuntamentiCard key={item} />)}
+                        {[1, 1, 1, 1, 1].map((item) => <AppuntamentiCardMedico key={item} />)}
                     </div>
                 </Grid>
             </Grid>
