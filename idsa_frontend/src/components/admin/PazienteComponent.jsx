@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { createPaziente, getPaziente, updatePaziente } from '../../hrServices/PazienteService'
+import { createPaziente, getPaziente, updatePaziente } from '../../adminServices/PazienteService'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const PazienteComponent = () => {

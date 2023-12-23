@@ -17,6 +17,7 @@ import MenuVisite from './components/liste/menuVisite'
 import ProfiloUtente from './components/viste/ProfiloUtente'
 import AppuntamentiHr from './components/liste/AppuntamentiHr'
 import AppuntamentiMedico from './components/liste/AppuntamentiMedico'
+import ProfiloMedico from './components/viste/ProfiloMedico'
 
 function App() {
 
@@ -33,12 +34,12 @@ function App() {
             <Route path='/pazienti' element = { <ListPazienteComponent />}></Route>
             {/* // http://localhost:3000/add-paziente */}
             <Route path='/add-paziente' element = { <PazienteComponent/> }></Route>
-            {/* // http://localhost:3000/edit-paziente */}
-            <Route path='/edit-paziente/:id_paziente' element = { <PazienteComponent/> }></Route>
+                  {/* // http://localhost:3000/edit-paziente */}
+                  <Route path='/edit-paziente/:id_paziente' element={<ProfiloUtente />}></Route>
             {/* // http://localhost:3000/medici */}
             <Route path='/medici' element = { <ListMedicoComponent />}></Route>
-            {/* // http://localhost:3000/add-medico */}
-            <Route path='/add-medico' element = { <MedicoComponent/> }></Route>
+                  {/* // http://localhost:3000/add-medico */}
+                  <Route path='/add-medico' element={<ProfiloMedico />}></Route>
             {/* // http://localhost:3000/edit-medico/1 */}
             <Route path='/edit-medico/:id_medico' element={<MedicoComponent />}></Route>
             {/* // http://localhost:3000/visualizzaPaziente/1 */}

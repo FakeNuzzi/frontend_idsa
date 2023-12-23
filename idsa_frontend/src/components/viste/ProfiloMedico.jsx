@@ -14,7 +14,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function ProfiloUtente() {
+export default function ProfiloMedico() {
     const [agreed, setAgreed] = useState(false)
 
     const [nome, setNome] = useState('')
@@ -22,41 +22,48 @@ export default function ProfiloUtente() {
     const [data_n, setDataNascita] = useState('')
     const [cf, setCodiceFiscale] = useState('')
     const [email, setEmail] = useState('')
+    const [stipendio, setStipendio] = useState('')
+    const [specializ, setSpecializ] = useState('')
 
-    const { id_paziente } = useParams();
+    const { id_medico } = useParams();
 
     const [errors, setErrors] = useState({
         nome: '',
         cognome: '',
         data_n: '',
         cf: '',
-        email:'',
+        email: '',
+        stipendio: '',
+        specializ: '',
     })
 
     const navigator = useNavigate();
 
     useEffect(() => {
-        if (id_paziente) {
-            getPaziente(id_paziente).then((response) => {
+        if (id_medico) {
+            getPaziente(id_medico).then((response) => {
                 setNome(response.data.nome);
                 setCognome(response.data.cognome);
                 setDataNascita(response.data.data_n);
                 setCodiceFiscale(response.data.cf);
                 setEmail(response.data.email);
+                setStipendio(response.data.stipendio);
+                setSpecializ(response.data.specializ);
             }).catch(error => {
                 console.error(error);
             })
         }
-    }, [id_paziente])
+    }, [id_medico])
 
     function saveOrUpdatePaziente(e) {
         e.preventDefault();
 
         if (validateForm()) {
-            const paziente = { nome, cognome, data_n, cf,email }
-            console.log(paziente)
-            if (id_paziente) {
-                updatePaziente(id_paziente, paziente).then((response) => {
+            const medico = {
+                nome, cognome, data_n, cf, email, stipendio, specializ}
+            console.log(medico)
+            if (id_medico) {
+                updatePaziente(id_medico, medico).then((response) => {
                     console.log(response.data)
                     navigator('/pazienti');
                 }).catch(error => {
@@ -64,9 +71,9 @@ export default function ProfiloUtente() {
                 })
             }
             else {
-                createPaziente(paziente).then((response) => {
+                createPaziente(medico).then((response) => {
                     console.log(response.data);
-                    navigator('/pazienti')
+                    navigator('/medico')
                 }).catch(error => {
                     console.error(error);
                 })
@@ -116,11 +123,11 @@ export default function ProfiloUtente() {
     }
 
     function pageTitle() {
-        if (id_paziente) {
-            return <h2 className='text-center'>Update Paziente</h2>
+        if (id_medico) {
+            return <h2 className='text-center'>Update Medico</h2>
         }
         else {
-            return <h2 className='text-center'>Add Paziente</h2>
+            return <h2 className='text-center'>Add Medico</h2>
         }
     }
 
@@ -236,7 +243,41 @@ export default function ProfiloUtente() {
                             />
                         </div>
                     </div>
-                    
+
+                    <div className="sm:col-span-2">
+                        <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+                            stipendio
+                        </label>
+                        <div className="mt-2.5">
+                            <input
+                                type="text"
+                                name="stipendio"
+                                id=""
+                                autoComplete="stipendio"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={stipendio}
+                                onChange={(e) => setStipendio(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="sm:col-span-2">
+                        <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+                            specializzazione
+                        </label>
+                        <div className="mt-2.5">
+                            <input
+                                type="text"
+                                name="specializ"
+                                id=""
+                                autoComplete="specializ"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={specializ}
+                                onChange={(e) => setSpecializ(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
                     <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
                         <div className="flex h-6 items-center">
                             <Switch

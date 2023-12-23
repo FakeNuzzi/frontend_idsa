@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { createMedico, getMedico, updateMedico } from '../../hrServices/MedicoService'
+import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const MedicoComponent = () => {
