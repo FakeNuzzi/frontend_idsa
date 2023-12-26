@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
+import { listAppuntamenti } from '../../services/AppuntamentiService'
 
 const MenuVisite = () => {
     const [showCard, setShowCard] = useState("all");
 
-    
+    const [appuntamenti, setAppuntamenti] = useState([])
 
     const handleProject = (category) => {
         setShowCard(category);
     };
 
-    
+    useEffect(() => {
+        getAllAppuntamenti();
+    }, [])
+
+    function getAllAppuntamenti() {
+        listAppuntamenti().then((response) => {
+            setAppuntamenti(response.data);
+        }).catch(error => {
+            console.error(error);
+        })
+    }
 
     return (
         <>
@@ -95,54 +106,15 @@ const MenuVisite = () => {
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-4">
-                        <PortfolioCard
-                            ImageHref="https://i.ibb.co/64WfFPt/image-01.jpg"
-                            category="Branding"
-                            title="Creative Agency"
+                        {appuntamenti.map((item) => <PortfolioCard
+                            key={item}
+                            category={item.category }
+                            title={item.nome }
                             button="View Details"
-                            
+                            id={item.id_visita}
                             showCard={showCard}
-                        />
-                        <PortfolioCard
-                            ImageHref="https://i.ibb.co/PT7ghRs/image-06.jpg"
-                            category="marketing"
-                            title="Creative Agency"
-                            button="View Details"
-                            buttonHref="/visualizzaVisita/1"
-                            showCard={showCard}
-                        />
-                        <PortfolioCard
-                            ImageHref="https://i.ibb.co/vkt8C1P/image-02.jpg"
-                            category="marketing"
-                            title="Creative Agency"
-                            button="View Details"
-                            buttonHref="/visualizzaVisita/1"
-                            showCard={showCard}
-                        />
-                        <PortfolioCard
-                            ImageHref="https://i.ibb.co/3FKqS1G/image-03.jpg"
-                            category="Development"
-                            title="Creative Agency"
-                            button="View Details"
-                            buttonHref="/visualizzaVisita/1"
-                            showCard={showCard}
-                        />
-                        <PortfolioCard
-                            ImageHref="https://i.ibb.co/m6dq2fX/image-04.jpg"
-                            category="Design"
-                            title="Creative Agency"
-                            button="View Details"
-                            buttonHref="/visualizzaVisita/1"
-                            showCard={showCard}
-                        />
-                        <PortfolioCard
-                            ImageHref="https://i.ibb.co/mCPjBsH/image-05.jpg"
-                            category="Marketing"
-                            title="Creative Agency"
-                            button="View Details"
-                            buttonHref="/visualizzaVisita/1"
-                            showCard={showCard}
-                        />
+                        />)}
+                        
                     </div>
                 </div>
             </section>
@@ -155,10 +127,10 @@ export default MenuVisite;
 const PortfolioCard = ({
     showCard,
     category,
-    ImageHref,
     title,
     button,
     buttonHref,
+    id,
 }) => {
 
     const navigator = useNavigate();
@@ -176,16 +148,14 @@ const PortfolioCard = ({
                     }`}
             >
                 <div className="relative mb-12">
-                    <div className="overflow-hidden rounded-[10px]">
-                        <img src={ImageHref} alt="portfolio" className="w-full" />
-                    </div>
+                    
                     <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-white dark:bg-dark-2 py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
                         <span className="text-primary mb-2 block text-sm font-medium">
                             {category}
                         </span>
                         <h3 className="text-dark dark:text-white mb-5 text-xl font-bold">{title}</h3>
                         <a
-                            onClick={() => visualizzaVisita(1)}
+                            onClick={() => visualizzaVisita({ id })}
                             className="text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary inline-block rounded-md border border-stroke dark:border-dark-3 py-[10px] px-7 text-sm font-medium transition hover:text-white"
                         >
                             {button}

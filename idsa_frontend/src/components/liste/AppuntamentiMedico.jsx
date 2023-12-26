@@ -1,20 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import AppuntamentiCardMedico from './AppuntamentiCardMedico'
+import { listAppuntamentiMedico } from '../../services/AppuntamentiMedicoService'
 import { useNavigate } from 'react-router-dom'
 
 
 
 const AppuntamentiMedico = () => {
     const orderStatus = [
-        { lable: "in arrivo", value: "inArrivo" },
-        { lable: "spedito", value: "spedito" },
-        { lable: "cancellato", value: "cancellato" },
-        { lable: "ritornato", value: "ritornato" },
+        { lable: "categoria uno", value: "uno" },
+        { lable: "categoria due", value: "due" },
+        { lable: "categoria tre", value: "tre" },
+        { lable: "categoria quattro", value: "quattro" },
     ]
+
+    const [appuntamentiMedico, setAppuntamentiMedico] = useState([])
 
     const navigator = useNavigate();
 
+    useEffect(() => {
+        getAllAppuntamentiMedico();
+    }, [])
+
+    function getAllAppuntamentiMedico() {
+        listAppuntamentiMedico().then((response) => {
+            setAppuntamentiMedico(response.data);
+        }).catch(error => {
+            console.error(error);
+        })
+    }
 
     function visualizzaProfilo() {
         navigator(`/edit-medico/1`)
@@ -44,7 +58,7 @@ const AppuntamentiMedico = () => {
                 </Grid>
                 <Grid item xs={9}>
                     <div className='space-y-5'>
-                        {[1, 1, 1, 1, 1].map((item) => <AppuntamentiCardMedico key={item} />)}
+                        {appuntamentiMedico.map((item) => <AppuntamentiCardMedico key={item} appuntamento={item} />)}
                     </div>
                 </Grid>
             </Grid>

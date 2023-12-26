@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import { listMedici, deleteMedico } from '../../adminServices/MedicoService'
+import { listAppuntamentiMedico, deleteAppuntamentoMedico } from '../../services/AppuntamentiMedicoService'
 import { useNavigate } from 'react-router-dom'
 
 
 const AppuntamentiHr = () => {
 
-    const [medici, setMedici] = useState([])
+    const [appuntamenti, setAppuntamneti] = useState([])
 
     const navigator = useNavigate();
 
     useEffect(() => {
-        getAllMedici();
+        getAllAppuntamenti();
     }, [])
 
-    function getAllMedici() {
-        listMedici().then((response) => {
-            setMedici(response.data);
+    function getAllAppuntamenti() {
+        listAppuntamentiMedico().then((response) => {
+            setAppuntamneti(response.data);
         }).catch(error => {
             console.error(error);
         })
     }
 
-    function addNewMedico() {
-        navigator('/add-medico')
+    function addNewAppuntamento() {
+        navigator('/add-appuntamnetoMedico')
     }
 
-    function updateMedico(id_medico) {
-        navigator(`/edit-medico/${id_medico}`)
+    function updateAppuntamento(id_appuntamento) {
+        navigator(`/edit-appuntamentoMedico/${id_appuntamentoMedico}`)
     }
 
     function back2Menu() {
         navigator('/MenuComponent')
     }
 
-    function removeMedico(id_medico) {
-        console.log(id_medico);
-        deleteMedico(id_medico).then((response) => {
-            getAllMedici();
+    function removeAppntamentoMedico(id_appuntamento) {
+        console.log(id_appuntamento);
+        deleteAppuntamentoMedico(id_appuntamento).then((response) => {
+            getAllAppuntamentiMedico();
         }).catch(error => {
             console.error(error);
         })
@@ -45,7 +45,7 @@ const AppuntamentiHr = () => {
     return (
         <div className='container'>
             <h2 className='text-center'>Lista di Tutti gli Appuntamenti</h2>
-            <button className='btn btn-primary mb-2' onClick={addNewMedico}>aggiungi appuntamento</button>
+            <button className='btn btn-primary mb-2' onClick={addNewAppuntamento}>aggiungi appuntamento</button>
             <table className='table table-striped table-bordered'>
                 <thead>
                     <tr>
@@ -58,17 +58,14 @@ const AppuntamentiHr = () => {
                 </thead>
                 <tbody>
                     {
-                        medici.map(medico =>
-                            <tr key={medico.id_medico}>
-                                <td>{medico.id_medico}</td>
-                                <td>{medico.nome}</td>
-                                <td>{medico.cognome}</td>
-                                <td>{medico.data_n}</td>
-                                <td>{medico.cf}</td>
-                                <td>{medico.stipendio}</td>
-                                <td>{medico.specializ}</td>
+                        appuntamenti.map(appuntamento =>
+                            <tr key={appuntamento.tipo_visita}>
+                                <td>{appuntamento.giorno}</td>
+                                <td>{appuntamento.ora}</td>
+                                <td>{appuntamento.paziente}</td>
+                                <td>{appuntamento.medico}</td>
                                 <td>
-                                    <button className='btn btn-danger' onClick={() => removeMedico(medico.id_medico)}>Delete</button>
+                                    <button className='btn btn-danger' onClick={() => removeAppuntamentoMedico(appuntamento.id_appuntamneto)}>Delete</button>
                                 </td>
                             </tr>)
                     }

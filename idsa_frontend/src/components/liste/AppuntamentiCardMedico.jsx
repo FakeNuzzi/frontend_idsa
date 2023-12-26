@@ -1,8 +1,9 @@
 import React from 'react'
 import { Grid } from '@mui/material'
+import { listAppuntamenti } from '../../services/AppuntamentiUtenteService'
 import { useNavigate } from 'react-router-dom'
 
-const AppuntamentiCardMedico = () => {
+const AppuntamentiCardMedico = ({ appuntamento }) => {
 
     const navigator = useNavigate();
 
@@ -11,7 +12,7 @@ const AppuntamentiCardMedico = () => {
     }
 
     function visualizzaCartella() {
-        navigator(`/visualizzaMedico`)
+        navigator(`/visualizzaCartella`)
     }
     
 
@@ -21,9 +22,9 @@ const AppuntamentiCardMedico = () => {
                 <Grid item xs={6}>
                     <div className='flex cursor-pointer'>
                         <div className='ml-5 space-y-2'>
-                            <p className=''>nome casuale visita</p>
-                            <p className='opacity-50 text-xs font-semibold'>giorno</p>
-                            <p className='opacity-50 text-xs font-semibold'>ora</p>
+                            <p className=''>{appuntamento.tipo_visita}</p>
+                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.data}</p>
+                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.ora}</p>
                         </div>
                     </div>
                 </Grid>
@@ -35,7 +36,7 @@ const AppuntamentiCardMedico = () => {
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaPaziente(1)}>visualizza paziente</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaPaziente(appuntamento.id_paziente)}>visualizza paziente</button>
                         </span>
                     </p>
 

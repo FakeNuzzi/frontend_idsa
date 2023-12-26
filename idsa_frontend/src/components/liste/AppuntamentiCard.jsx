@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getAppuntamento } from '../../services/AppuntamentiUtenteService'
 import { Grid } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-const AppuntamentiCard = () => {
 
-    const navigator = useNavigate();
 
-    //const [visite, setvisite] = useState([])
+const AppuntamentiCard = ({ appuntamento }) => {
 
     function visualizzaMedico(id_medico) {
         navigator(`/visualizzaMedico/${id_medico}`)
@@ -18,26 +17,26 @@ const AppuntamentiCard = () => {
                 <Grid item xs={6}>
                     <div className='flex cursor-pointer'>
                         <div className='ml-5 space-y-2'>
-                            <p className=''>nome casuale visita</p>
-                            <p className='opacity-50 text-xs font-semibold'>giorno</p>
-                            <p className='opacity-50 text-xs font-semibold'>ora</p>
+                            <p className=''>{appuntamento.tipo_visita}</p>
+                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.giorno}</p>
+                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.ora}</p>
                         </div>
                     </div>
                 </Grid>
                 <Grid item xs={4}>
                     <p>
                         <span>
-                            pagato
+                            {appuntamento.stato}
                         </span>
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(visita.id_medico)}>paga</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.medico)}>paga</button>
                         </span>
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(1)}>visualizza medico</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.medico)}>visualizza medico</button>
                         </span>
                     </p>
                 </Grid>

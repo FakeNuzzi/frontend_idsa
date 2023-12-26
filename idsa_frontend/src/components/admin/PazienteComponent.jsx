@@ -7,7 +7,6 @@ const PazienteComponent = () => {
     const [cognome, setCognome] = useState('')
     const [data_n, setDataNascita] = useState('')
     const [cf, setCodiceFiscale] = useState('')
-
     const {id_paziente} = useParams();
 
     const [errors, setErrors] = useState({
