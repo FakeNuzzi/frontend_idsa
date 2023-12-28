@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { listPazienti, deletePaziente } from '../../adminServices/PazienteService'
 import { useNavigate } from 'react-router-dom'
 
+//lista in cui l admin vede tutti i pazienti e puo agire su di loro
 
 const ListPazienteComponent = () => {
 

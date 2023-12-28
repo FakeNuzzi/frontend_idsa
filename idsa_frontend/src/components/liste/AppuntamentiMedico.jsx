@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import AppuntamentiCardMedico from './AppuntamentiCardMedico'
-import { listAppuntamentiMedico } from '../../services/AppuntamentiMedicoService'
+import { listAppuntamentiMedico } from '../../services/AppuntamentiService'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -22,8 +22,8 @@ const AppuntamentiMedico = () => {
         getAllAppuntamentiMedico();
     }, [])
 
-    function getAllAppuntamentiMedico() {
-        listAppuntamentiMedico().then((response) => {
+    function getAllAppuntamentiMedico(id_medico) {
+        listAppuntamentiMedico(id_medico).then((response) => {
             setAppuntamentiMedico(response.data);
         }).catch(error => {
             console.error(error);

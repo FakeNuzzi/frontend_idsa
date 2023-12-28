@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { listAppuntamenti } from '../../services/AppuntamentiService'
+import { listAppuntamenti } from '../../services/visiteService'
 
 const MenuVisite = () => {
     const [showCard, setShowCard] = useState("all");
@@ -107,11 +107,10 @@ const MenuVisite = () => {
                     </div>
                     <div className="flex flex-wrap -mx-4">
                         {appuntamenti.map((item) => <PortfolioCard
-                            key={item}
-                            category={item.category }
-                            title={item.nome }
+                            key={item}                            
+                            title={item.tipo_visita }
                             button="View Details"
-                            id={item.id_visita}
+                            data={item.data_ora }
                             showCard={showCard}
                         />)}
                         
@@ -126,11 +125,11 @@ export default MenuVisite;
 
 const PortfolioCard = ({
     showCard,
-    category,
+    data,
     title,
     button,
     buttonHref,
-    id,
+    
 }) => {
 
     const navigator = useNavigate();
@@ -142,20 +141,19 @@ const PortfolioCard = ({
     return (
         <>
             <div
-                className={`w-full px-4 md:w-1/2 xl:w-1/3 ${showCard === "all" || showCard === category.toLowerCase()
-                        ? "block"
-                        : "hidden"
-                    }`}
+                className={`w-full px-4 md:w-1/2 xl:w-1/3
+                        
+                    `}
             >
                 <div className="relative mb-12">
                     
                     <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-white dark:bg-dark-2 py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
                         <span className="text-primary mb-2 block text-sm font-medium">
-                            {category}
+                            
                         </span>
                         <h3 className="text-dark dark:text-white mb-5 text-xl font-bold">{title}</h3>
                         <a
-                            onClick={() => visualizzaVisita({ id })}
+                            onClick={() => visualizzaVisita({ title })}
                             className="text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary inline-block rounded-md border border-stroke dark:border-dark-3 py-[10px] px-7 text-sm font-medium transition hover:text-white"
                         >
                             {button}

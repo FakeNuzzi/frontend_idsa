@@ -1,7 +1,7 @@
 
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
-import { createMedico, getMedico, updatePaziente } from '../../adminServices/MedicoService'
+import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
 import { useNavigate, useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
@@ -63,7 +63,7 @@ export default function ProfiloMedico() {
                 nome, cognome, data_n, cf, email, stipendio, specializ}
             console.log(medico)
             if (id_medico) {
-                updatePaziente(id_medico, medico).then((response) => {
+                updateMedico(id_medico, medico).then((response) => {
                     console.log(response.data)
                     navigator('/pazienti');
                 }).catch(error => {
@@ -71,7 +71,7 @@ export default function ProfiloMedico() {
                 })
             }
             else {
-                createPaziente(medico).then((response) => {
+                createMedico(medico).then((response) => {
                     console.log(response.data);
                     navigator('/medico')
                 }).catch(error => {

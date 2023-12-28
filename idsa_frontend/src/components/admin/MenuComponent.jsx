@@ -12,16 +12,7 @@ const MenuComponent = () => {
         navigator('/medici')
     }
 
-    /*return (
-        <div className="container">
-            <h2 className="text-center">Scegli la entità</h2>
-            <button className='btn btn-primary mb-2' onClick={menuPaziente}>Paziente</button>
-            <button className='btn btn-danger mb-2' onClick={menuMedici}>Medico</button>
-
-
-        </div>
-
-    )*/
+    
 
     
         return (
@@ -65,13 +56,7 @@ const MenuComponent = () => {
 
 const TeamCard = ({ imageSrc, name, profession,tipo }) => {
 
-    function menuPaziente() {
-        navigator('/pazienti')
-    }
-
-    function menuMedici() {
-        navigator('/medici')
-    }
+    
         return (
             <div onClick={tipo}>
                 <div className="w-full px-4 md:w-1/1 xl:w-1/8">

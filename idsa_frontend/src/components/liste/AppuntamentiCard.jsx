@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { getAppuntamento } from '../../services/AppuntamentiUtenteService'
 import { Grid } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
@@ -24,9 +23,11 @@ const AppuntamentiCard = ({ appuntamento }) => {
                     </div>
                 </Grid>
                 <Grid item xs={4}>
+
                     <p>
                         <span>
-                            {appuntamento.stato}
+                            
+
                         </span>
                     </p>
                     <p>

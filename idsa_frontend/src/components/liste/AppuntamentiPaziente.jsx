@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import AppuntamentiCard from './AppuntamentiCard'
-import { listAppuntamenti} from '../../services/AppuntamentiUtenteService'
+import { listAppuntamenti} from '../../services/AppuntamentiService'
 import { useNavigate } from 'react-router-dom'
 
 /*

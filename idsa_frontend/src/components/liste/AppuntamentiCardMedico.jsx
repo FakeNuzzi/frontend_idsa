@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid } from '@mui/material'
-import { listAppuntamenti } from '../../services/AppuntamentiUtenteService'
 import { useNavigate } from 'react-router-dom'
 
 const AppuntamentiCardMedico = ({ appuntamento }) => {

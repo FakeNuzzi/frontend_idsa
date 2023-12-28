@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react'
 import { listMedici, deleteMedico } from '../../adminServices/MedicoService'
 import { useNavigate } from 'react-router-dom'
 
+/*
+pagina in cui l admin visualizza tutti i medici e puo agire aggiungendo togliendoo modificando i profili
+*/
 
 const ListMedicoComponent = () => {
 

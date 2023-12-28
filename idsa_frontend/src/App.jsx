@@ -3,10 +3,8 @@ import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
 import ListPazienteComponent from './components/admin/ListPazienteComponent'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import PazienteComponent from './components/admin/PazienteComponent'
 import MenuComponent from './components/admin/MenuComponent'
 import ListMedicoComponent from './components/admin/ListMedicoComponent'
-import MedicoComponent from './components/admin/MedicoComponent'
 import Homepage from './components/home/Homepage'
 import VisualizzaPaziente from './components/viste/VisualizzaPaziente'
 import VisualizzaMedico from './components/viste/VisualizzaMedico'
@@ -33,15 +31,15 @@ function App() {
             {/* // http://localhost:3000/pazienti */}
             <Route path='/pazienti' element = { <ListPazienteComponent />}></Route>
             {/* // http://localhost:3000/add-paziente */}
-            <Route path='/add-paziente' element = { <PazienteComponent/> }></Route>
-                  {/* // http://localhost:3000/edit-paziente */}
-                  <Route path='/edit-paziente/:id_paziente' element={<ProfiloUtente />}></Route>
+            <Route path='/add-paziente' element = { <ProfiloUtente/> }></Route>
+            {/* // http://localhost:3000/edit-paziente/1 */}
+            <Route path='/edit-paziente/:id_paziente' element={<ProfiloUtente />}></Route>
             {/* // http://localhost:3000/medici */}
             <Route path='/medici' element = { <ListMedicoComponent />}></Route>
-                  {/* // http://localhost:3000/add-medico */}
-                  <Route path='/add-medico' element={<ProfiloMedico />}></Route>
+            {/* // http://localhost:3000/add-medico */}
+            <Route path='/add-medico' element={<ProfiloMedico />}></Route>
             {/* // http://localhost:3000/edit-medico/1 */}
-            <Route path='/edit-medico/:id_medico' element={<MedicoComponent />}></Route>
+            <Route path='/edit-medico/:id_medico' element={<ProfiloMedico />}></Route>
             {/* // http://localhost:3000/visualizzaPaziente/1 */}
             <Route path='/visualizzaPaziente/:idPaziente' element={<VisualizzaPaziente />}></Route>
             {/* // http://localhost:3000/visualizzaMedico/1 */}
