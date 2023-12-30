@@ -6,10 +6,10 @@ export const listAppuntamenti = () => axios.get(REST_API_BASE_URL);
 
 export const createAppuntamento = (appuntamento) => axios.post(REST_API_BASE_URL, appuntamento);
 
-export const getAppuntamento = (id_appuntamento) => axios.get(REST_API_BASE_URL + '/' + id_appuntamento);
+export const getAppuntamento = (id_app) => axios.get(REST_API_BASE_URL + '/' + id_app);
 
-export const updateAppuntamento = (id_appuntamento, appuntamneto) => axios.put(REST_API_BASE_URL + '/' + id_appuntamento, appuntamneto);
+export const updateAppuntamento = (id_app, appuntamneto) => axios.put(REST_API_BASE_URL + '/' + id_app, appuntamneto);
 
-export const deleteAppuntamento = (id_appuntamento) => axios.delete(REST_API_BASE_URL + '/' + id_appuntamento);
+export const deleteAppuntamento = (id_app) => axios.delete(REST_API_BASE_URL + '/' + id_app);
 
 export const listAppuntamentiMedico = (id_medico) => axios.get(REST_API_BASE_URL + '/' + id_medico);

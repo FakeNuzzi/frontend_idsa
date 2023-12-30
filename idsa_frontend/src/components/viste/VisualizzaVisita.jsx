@@ -4,7 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { createAppuntamento } from '../../services/AppuntamentiService'
-import { getAppuntamento } from '../../services/VisitaService'
+import { getVisita } from '../../services/VisitaService'
+import { listSlot } from '../../services/SlotService'
 
 
 
@@ -18,26 +19,34 @@ const VisualizzaVisita = () => {
     const [tipo_visita, setTipoVisita] = useState('')
     const [descrizione, setDescrizione] = useState('')
     const [prezzo, setPrezzo] = useState('')
+    const [slots, setSlot] = useState('')
+    const [id_medico, setMedico] = useState('')
 
 
     useEffect(() => {
         if (tipo_visita) {
-            getAppuntamento(tipo_visita).then((response) => {
+            getVisita(tipo_visita).then((response) => {
                 setTipoVisita(response.data.tipo_visita);
                 setDescrizione(response.data.descrizione);
                 setPrezzo(response.data.prezzo);
+                setMedico(response.data.id_medico);
             }).catch(error => {
                 console.error(error);
             })
         }
-          
+        listSlot().then((response) => {
+            setSlot(response.data);
+        }) 
     }, [tipo_visita])
 
-    function prenota(e) {
-        e.preventDefault();
+    function back2Menu() {
+        navigator('/MenuComponent')
+    }
 
-        
-        const appuntamento = { tipo_visita, descrizione, prezzo}
+    function prenota(dataOraSlot) {
+        const pagato = false;
+        const id_paziente = 1;
+        const appuntamento = { pagato,id_paziente,id_medico,tipo_visita, dataOraSlot}
         console.log(appuntamento),
             
            
@@ -70,18 +79,27 @@ const VisualizzaVisita = () => {
                         <form className="mt-10">
                             {/* Colors */}
                             <div>
-                                <h3 className="text-sm font-medium text-gray-900">giorno</h3>
-
-                               
-                            </div>
-
-                            {/* Sizes */}
-                            <div className="mt-10">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="text-sm font-medium text-gray-900">ora</h3>
-                                    
-                                </div>
-
+                                <table className='table table-striped table-bordered'>
+                                    <thead>
+                                        <tr>
+                                            <th>slot</th>
+                                            <th>stato</th> 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            slots.map(slot =>
+                                                <tr key={slot.dataOraSlot}>
+                                                    <td>{slot.dataOraSlot}</td>
+                                                    <td>{slot.occupato}</td>
+                                                    <td>
+                                                        <button className='btn btn-danger' onClick={() => prenota(slot.dataOraSlot)}>Prenota</button>
+                                                    </td>
+                                                </tr>)
+                                        }
+                                    </tbody>
+                                    <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
+                                </table>
                                
                             </div>
 

@@ -17,8 +17,8 @@ const AppuntamentiCard = ({ appuntamento }) => {
                     <div className='flex cursor-pointer'>
                         <div className='ml-5 space-y-2'>
                             <p className=''>{appuntamento.tipo_visita}</p>
-                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.giorno}</p>
-                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.ora}</p>
+                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.dataOraSlot}</p>
+                            
                         </div>
                     </div>
                 </Grid>
@@ -32,12 +32,12 @@ const AppuntamentiCard = ({ appuntamento }) => {
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.medico)}>paga</button>
+                            <button className='btn btn-info space-y-15 mt-2' >paga</button>
                         </span>
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.medico)}>visualizza medico</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.id_medico)}>visualizza medico</button>
                         </span>
                     </p>
                 </Grid>

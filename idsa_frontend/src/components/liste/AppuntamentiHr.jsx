@@ -51,11 +51,11 @@ const AppuntamentiHr = () => {
                     {
                         appuntamenti.map(appuntamento =>
                             <tr key={appuntamento.tipo_visita}>
-                                <td>{appuntamento.giorno}</td>
-                                <td>{appuntamento.paziente}</td>
-                                <td>{appuntamento.medico}</td>
+                                <td>{appuntamento.dataOraSlot}</td>
+                                <td>{appuntamento.id_paziente}</td>
+                                <td>{appuntamento.id_medico}</td>
                                 <td>
-                                    <button className='btn btn-danger' onClick={() => removeAppuntamento(appuntamento.id_appuntamneto)}>Delete</button>
+                                    <button className='btn btn-danger' onClick={() => removeAppuntamento(appuntamento.id_app)}>Delete</button>
                                 </td>
                             </tr>)
                     }

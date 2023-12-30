@@ -110,7 +110,7 @@ const MenuVisite = () => {
                             key={item}                            
                             title={item.tipo_visita }
                             button="View Details"
-                            data={item.data_ora }
+                            data={item.dataOraSlot }
                             showCard={showCard}
                         />)}
                         

@@ -41,10 +41,10 @@ const VisualizzaCartella = () => {
                 <tbody>
                     {
                         referti.map(referto =>
-                            <tr key={referto.id_referto}>
-                                <td>{referto.id_visita}</td>
-                                <td>{referto.referto_vis}</td>
-                                <td>{referto.prescrizione}</td>
+                            <tr key={referto.id_appuntamento}>
+                                <td>{referto.id_appuntamento}</td>
+                                <td>{referto.referto}</td>
+                                <td>{referto.prescr}</td>
                              
                             </tr>)
                     }

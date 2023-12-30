@@ -22,8 +22,7 @@ const AppuntamentiCardMedico = ({ appuntamento }) => {
                     <div className='flex cursor-pointer'>
                         <div className='ml-5 space-y-2'>
                             <p className=''>{appuntamento.tipo_visita}</p>
-                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.data}</p>
-                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.ora}</p>
+                            <p className='opacity-50 text-xs font-semibold'>{appuntamento.dataOraSlot}</p>
                         </div>
                     </div>
                 </Grid>
