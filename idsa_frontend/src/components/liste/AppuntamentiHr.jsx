@@ -1,16 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { listAppuntamenti, deleteAppuntamento } from '../../services/AppuntamentiService'
 import { useNavigate } from 'react-router-dom'
+import { getVisita } from '../../services/VisitaService'
+import { getSlot } from '../../services/SlotService'
+import { listAppuntamenti, deleteAppuntamento } from '../../services/AppuntamentiService'
+
 
 
 const AppuntamentiHr = () => {
 
     const [appuntamenti, setAppuntamneti] = useState([])
+    const [tipoVis, setTipoVisita] = useState('')
+    const [dataOra, setDataOra] = useState('')
 
     const navigator = useNavigate();
 
     useEffect(() => {
         getAllAppuntamenti();
+        getVisita(appuntamenti.tipo_visita).then((response) => {
+            setTipoVisita(response.data.tipoVis);
+        }).catch(error => {
+            console.error(error);
+        })
+
+        getSlot(appuntamenti.slot).then((response) => {
+            setDataOra(response.data.DataOraSlot);
+        }).catch(error => {
+            console.error(error);
+        })
     }, [])
 
     function getAllAppuntamenti() {
@@ -50,8 +66,8 @@ const AppuntamentiHr = () => {
                 <tbody>
                     {
                         appuntamenti.map(appuntamento =>
-                            <tr key={appuntamento.tipo_visita}>
-                                <td>{appuntamento.dataOraSlot}</td>
+                            <tr key={tipoVis}>
+                                <td>{dataOra}</td>
                                 <td>{appuntamento.id_paziente}</td>
                                 <td>{appuntamento.id_medico}</td>
                                 <td>
