@@ -6,7 +6,7 @@ import { listAppuntamenti} from '../../services/AppuntamentiService'
 import { useNavigate } from 'react-router-dom'
 
 /*
-questa è la homepage del utente base , al momento contiene un filtro per gli appuntamenti
+questa ï¿½ la homepage del utente base , al momento contiene un filtro per gli appuntamenti
 la lista degli appuntamenti futuri e una serie di pulsanti che vanno alle altre pagine accessibili dal utente 
 */
 

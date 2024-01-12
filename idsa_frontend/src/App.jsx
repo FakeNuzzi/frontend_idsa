@@ -46,14 +46,14 @@ function App() {
             <Route path='/visualizzaMedico/:idMedico' element={<VisualizzaMedico />}></Route>
             {/* // http://localhost:3000/visualizzaVisita/1 */}
             <Route path='/visualizzaVisita/:idVisita' element={<VisualizzaVisita />}></Route>
-            {/* // http://localhost:3000/visualizzaCartella */}
-            <Route path='/visualizzaCartella' element={<VisualizzaCartella />}></Route>
+            {/* // http://localhost:3000/visualizzaCartella/1 */}
+            <Route path='/visualizzaCartella/:idPaziente' element={<VisualizzaCartella />}></Route>
             {/* // http://localhost:3000/appuntamentiPaziente */}
             <Route path='/appuntamentiPaziente' element={<AppuntamentiPaziente />}></Route>
             {/* // http://localhost:3000/menuVisite */}
             <Route path='/menuVisite' element={<MenuVisite />}></Route>
-            {/* // http://localhost:3000/profiloUtente */}
-            <Route path='/profiloUtente' element={<ProfiloUtente />}></Route>
+            {/* // http://localhost:3000/profiloUtente/1 */}
+            <Route path='/profiloUtente/:idPaziente' element={<ProfiloUtente />}></Route>
             {/* // http://localhost:3000/appuntamentiHr */}
             <Route path='/appuntamentiHr' element={<AppuntamentiHr />}></Route>
             {/* // http://localhost:3000/appuntamentiMedico */}

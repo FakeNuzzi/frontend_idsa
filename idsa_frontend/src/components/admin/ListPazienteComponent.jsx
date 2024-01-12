@@ -30,6 +30,10 @@ const ListPazienteComponent = () => {
         navigator(`/edit-paziente/${id_paziente}`)
     }
 
+    function visualizzaCartella(id_paziente){
+        navigator(`/visualizzaCartella/${id_paziente}`)
+    }
+
     function back2Menu(){
         navigator('/MenuComponent')
     }
@@ -70,7 +74,7 @@ const ListPazienteComponent = () => {
                                 <td>
                                     <button className='btn btn-info' onClick={() => updatePaziente(paziente.id_paziente)}>Update</button>
                                     <button className='btn btn-danger' onClick={() => removePaziente(paziente.id_paziente)}>Delete</button>
-                                    <button className='btn btn-success' onClick={() => updatePaziente(paziente.id_paziente)}>Cartella</button>
+                                    <button className='btn btn-success' onClick={() => visualizzaCartella(paziente.id_paziente)}>Cartella</button>
                                 </td>
                             </tr>)
                     }
