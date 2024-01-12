@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getVisita } from '../../services/VisitaService'
+import { getVisita } from '../../services/VisiteService'
 import { getSlot } from '../../services/SlotService'
 import { listAppuntamenti, deleteAppuntamento } from '../../services/AppuntamentiService'
 

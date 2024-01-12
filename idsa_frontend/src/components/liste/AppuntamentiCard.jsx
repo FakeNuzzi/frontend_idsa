@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { updateAppuntamento } from '../../services/AppuntamentiService'
-import { getVisita } from '../../services/VisitaService'
+import { getVisita } from '../../services/VisiteService'
 import { getSlot } from '../../services/SlotService'
 
 
@@ -46,7 +46,7 @@ const AppuntamentiCard = ({ appuntamento }) => {
             navigator('/appuntamentiPaziente');
         }).catch(error => {
             console.error(error);
-        })
+        }))
     }
 
     return (

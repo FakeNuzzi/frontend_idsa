@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { createMedico, getMedico, updatePaziente } from '../../adminServices/MedicoService'
+import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { listAppuntamenti } from '../../services/visiteService'
+import { listAppuntamenti } from '../../services/AppuntamentiService'
 
 const MenuVisite = () => {
     const [showCard, setShowCard] = useState("all");

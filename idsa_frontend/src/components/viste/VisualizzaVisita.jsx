@@ -4,8 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { createAppuntamento } from '../../services/AppuntamentiService'
-import { getVisita } from '../../services/VisitaService'
-import { listSlot } from '../../services/SlotService'
+import { getVisita } from '../../services/VisiteService'
+import { listSlots } from '../../services/SlotService'
 
 
 

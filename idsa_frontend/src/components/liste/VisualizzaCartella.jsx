@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { listReferti} from '../../listeServices/refertoService'
+import { listReferti} from '../../services/RefertoService'
 import { useNavigate } from 'react-router-dom'
 
 

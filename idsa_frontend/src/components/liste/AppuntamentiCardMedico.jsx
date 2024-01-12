@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { getVisita } from '../../services/VisitaService'
+import { getVisita } from '../../services/VisiteService'
 import { getSlot } from '../../services/SlotService'
 
 const AppuntamentiCardMedico = ({ appuntamento }) => {
