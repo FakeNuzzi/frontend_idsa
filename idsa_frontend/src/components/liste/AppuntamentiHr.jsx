@@ -23,7 +23,8 @@ const AppuntamentiHr = () => {
         })
 
         getSlot(appuntamenti.slot).then((response) => {
-            setDataOra(response.data.DataOraSlot);
+            setDataOra(response.data.slot);
+            setDataOra(response.data.DataOraslot);
         }).catch(error => {
             console.error(error);
         })
@@ -68,8 +69,8 @@ const AppuntamentiHr = () => {
                         appuntamenti.map(appuntamento =>
                             <tr key={tipoVis}>
                                 <td>{dataOra}</td>
-                                <td>{appuntamento.id_paziente}</td>
-                                <td>{appuntamento.id_medico}</td>
+                                <td>{appuntamento.paziente}</td>
+                                <td>{appuntamento.medico}</td>
                                 <td>
                                     <button className='btn btn-danger' onClick={() => removeAppuntamento(appuntamento.id_app)}>Delete</button>
                                 </td>

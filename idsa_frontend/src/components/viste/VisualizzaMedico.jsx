@@ -22,11 +22,11 @@ const VisualizzaMedico = () => {
     const [stipendio, setStipendio] = useState('')
     const [specializ, setSpecializ] = useState('')
 
-    const { id_medico } = useParams();
+    const {id_utente } = useParams();
 
     useEffect(() => {
-        if (id_medico) {
-            getMedico(id_medico).then((response) => {
+        if (id_utente) {
+            getMedico(id_utente).then((response) => {
                 setNome(response.data.nome);
                 setCognome(response.data.cognome);
                 setDataNascita(response.data.data_n);
@@ -38,7 +38,7 @@ const VisualizzaMedico = () => {
                 console.error(error);
             })
         }
-    }, [id_medico])
+    }, [id_utente])
 
 
     return (

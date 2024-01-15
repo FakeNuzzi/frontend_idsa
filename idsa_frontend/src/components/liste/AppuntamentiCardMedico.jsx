@@ -13,19 +13,19 @@ const AppuntamentiCardMedico = ({ appuntamento }) => {
 
     useEffect(() => {
 
-        getVisita(appuntamento.tipo_visita).then((response) => {
+        getVisita(appuntamento.appuntamento.tipo_visita).then((response) => {
             setTipoVisita(response.data.tipoVis);
         }).catch(error => {
             console.error(error);
         })
 
-        getSlot(appuntamento.slot).then((response) => {
+        getSlot(appuntamento.appuntamento.slot).then((response) => {
             setDataOra(response.data.DataOraSlot);
         }).catch(error => {
             console.error(error);
         })
 
-    }, [appuntamento.tipo_visita, appuntamento.slot])
+    }, [appuntamento.appuntamento.tipo_visita, appuntamento.appuntamento.slot])
 
     function visualizzaPaziente(id_paziente) {
         navigator(`/visualizzaPaziente/${id_paziente}`)
@@ -54,7 +54,7 @@ const AppuntamentiCardMedico = ({ appuntamento }) => {
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaPaziente(appuntamento.id_paziente)}>visualizza paziente</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaPaziente(appuntamento.appuntamento.id_paziente)}>visualizza paziente</button>
                         </span>
                     </p>
 

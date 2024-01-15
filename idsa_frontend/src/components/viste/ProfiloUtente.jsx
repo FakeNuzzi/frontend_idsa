@@ -58,7 +58,7 @@ export default function ProfiloUtente() {
             if (id_paziente) {
                 updatePaziente(id_paziente, paziente).then((response) => {
                     console.log(response.data)
-                    navigator('/pazienti');
+                    navigator(`/appuntamentiPaziente`)
                 }).catch(error => {
                     console.error(error);
                 })
@@ -66,13 +66,14 @@ export default function ProfiloUtente() {
             else {
                 createPaziente(paziente).then((response) => {
                     console.log(response.data);
-                    navigator('/pazienti')
+                    navigator(`/appuntamentiPaziente`)
                 }).catch(error => {
                     console.error(error);
                 })
             }
 
         }
+        navigator(`/appuntamentiPaziente`)
     }
 
     function validateForm() {
@@ -270,7 +271,7 @@ export default function ProfiloUtente() {
                     <button
                         type="submit"
                         className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={saveOrUpdatePaziente}
+                        onClick={() => saveOrUpdatePaziente()}
                     >
                         Modifica
                     </button>

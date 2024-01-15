@@ -14,19 +14,19 @@ const AppuntamentiCard = ({ appuntamento }) => {
 
     useEffect(() => {
         
-        getVisita(appuntamento.tipo_visita).then((response) => {
+        getVisita(appuntamento.appuntamento.tipo_visita).then((response) => {
             setTipoVisita(response.data.tipoVis);
         }).catch(error => {
             console.error(error);
         })
 
-        getSlot(appuntamento.slot).then((response) => {
+        getSlot(appuntamento.appuntamento.slot).then((response) => {
             setDataOra(response.data.DataOraSlot);
         }).catch(error => {
             console.error(error);
         })
 
-    }, [appuntamento.tipo_visita, appuntamento.slot])
+    }, [appuntamento.appuntamento.tipo_visita, apputamento.appuntamento.slot])
 
     function visualizzaMedico(id_medico) {
         navigator(`/visualizzaMedico/${id_medico}`)
@@ -49,6 +49,17 @@ const AppuntamentiCard = ({ appuntamento }) => {
         }))
     }
 
+    function pagamento() {
+        if (appuntamento.appuntamento.pagato == false) {
+            <p>
+                <span>
+                    <button className='btn btn-info space-y-15 mt-2' onClick={() => updateAppuntamento(true, appuntamento.appuntamento.id_paziente, appuntamento.appuntamento.id_medico, appuntamento.appuntamento.id_risultato, tipoVis, dataOra, appuntamento.appuntamento.id_app)}>paga</button>
+                </span>
+            </p>
+        }
+        
+    }
+
     return (
         <div className='p-5 shadow-md shadow-black hover:shadow-2x1 border'>
             <Grid container spacing={2} sx={{justifyContent:"space-between"} }>
@@ -66,18 +77,13 @@ const AppuntamentiCard = ({ appuntamento }) => {
                     <p>
                         <span>
 
-                            stato pagamento {appuntamento.pagato}
+                            stato pagamento {appuntamento.appuntamento.pagato}
                         </span>
                     </p>
-                    <p>
-                        
-                        <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => updateAppuntamento(true, appuntamento.id_paziente, appuntamento.id_medico, appuntamento.id_risultato, tipoVis, dataOra, appuntamento.id_app)}>paga</button>
-                        </span>
-                    </p>
+                    {pagamento()}
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.id_medico)}>visualizza medico</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaMedico(appuntamento.appuntamento.id_medico)}>visualizza medico</button>
                         </span>
                     </p>
                 </Grid>

@@ -65,7 +65,7 @@ export default function ProfiloMedico() {
             if (id_medico) {
                 updateMedico(id_medico, medico).then((response) => {
                     console.log(response.data)
-                    navigator('/pazienti');
+                    navigator(`/appuntamentiMedico`);
                 }).catch(error => {
                     console.error(error);
                 })
@@ -73,13 +73,14 @@ export default function ProfiloMedico() {
             else {
                 createMedico(medico).then((response) => {
                     console.log(response.data);
-                    navigator('/medico')
+                    navigator(`/appuntamentiMedico`);
                 }).catch(error => {
                     console.error(error);
                 })
             }
 
         }
+        navigator(`/appuntamentiMedico`)
     }
 
     function validateForm() {
@@ -132,7 +133,7 @@ export default function ProfiloMedico() {
     }
 
     function tornaIndietro() {
-        navigator(`/appuntamentiPaziente`)
+        navigator(`/appuntamentiMedico`)
     }
 
     return (
@@ -311,7 +312,7 @@ export default function ProfiloMedico() {
                     <button
                         type="submit"
                         className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={saveOrUpdatePaziente}
+                        onClick={() => saveOrUpdatePaziente()}
                     >
                         Modifica
                     </button>

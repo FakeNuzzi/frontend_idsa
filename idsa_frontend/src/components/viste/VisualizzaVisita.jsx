@@ -24,12 +24,12 @@ const VisualizzaVisita = () => {
 
 
     useEffect(() => {
-        if (tipo_visita) {
-            getVisita(tipo_visita).then((response) => {
-                setTipoVisita(response.data.tipo_visita);
-                setDescrizione(response.data.descrizione);
+        if (id_vis) {
+            getVisita(id_vis).then((response) => {
+                setTipoVisita(response.data.tipoVis);
+                setDescrizione(response.data.descr);
                 setPrezzo(response.data.prezzo);
-                setMedico(response.data.id_medico);
+                setMedico(response.data.medico);
             }).catch(error => {
                 console.error(error);
             })

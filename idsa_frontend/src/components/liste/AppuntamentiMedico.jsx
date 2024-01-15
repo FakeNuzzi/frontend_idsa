@@ -19,7 +19,7 @@ const AppuntamentiMedico = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
-        getAllAppuntamentiMedico();
+        getAllAppuntamentiMedico(1);
     }, [])
 
     function getAllAppuntamentiMedico(id_medico) {
@@ -43,13 +43,7 @@ const AppuntamentiMedico = () => {
 
                         <div className='spacy-y-4 mt-10'>
                             <h1 className='font-semibold text-lg'>I TUOI APPUNTAMENTI</h1>
-                            {orderStatus.map((option) => <div key={option.lable} className='flex items-center'>
-                                <input defaultValue={option.value} type="checkbox" className='h-4 w-4 border-grey-300 text-indigo-600 focus:ring-indigo-500' />
-
-                                <label className='ml-3 text-sm text-gray-600' htmlFor={option.value}>
-                                    {option.lable}
-                                </label>
-                            </div>)}
+                            
                  
                             <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaProfilo()}>visualizza profilo</button>
                         </div>
