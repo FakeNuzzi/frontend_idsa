@@ -52,7 +52,7 @@ const AppuntamentiMedico = () => {
                 </Grid>
                 <Grid item xs={9}>
                     <div className='space-y-5'>
-                        {appuntamentiMedico.map((item) => <AppuntamentiCardMedico key={item} appuntamento={item} />)}
+                        {appuntamentiMedico.map((item) => <AppuntamentiCardMedico key={item} id_paziente={item.id_paziente} id_visita={item.id_visita} id_slot={item.id_slot } />)}
                     </div>
                 </Grid>
             </Grid>

@@ -66,8 +66,8 @@ const ListMedicoComponent = () => {
                 <tbody>
                     {
                         medici.map(medico =>
-                            <tr key={medico.id_medico}>
-                                <td>{medico.id_medico}</td>
+                            <tr key={medico.id_utente}>
+                                <td>{medico.id_utente}</td>
                                 <td>{medico.nome}</td>
                                 <td>{medico.cognome}</td>
                                 <td>{medico.data_n}</td>
@@ -75,8 +75,8 @@ const ListMedicoComponent = () => {
                                 <td>{medico.stipendio}</td>
                                 <td>{medico.specializ}</td>
                                 <td>
-                                    <button className='btn btn-info' onClick={() => updateMedico(medico.id_medico)}>Update</button>
-                                    <button className='btn btn-danger' onClick={() => removeMedico(medico.id_medico)}>Delete</button>
+                                    <button className='btn btn-info' onClick={() => updateMedico(medico.id_utente)}>Update</button>
+                                    <button className='btn btn-danger' onClick={() => removeMedico(medico.id_utente)}>Delete</button>
                                 </td>
                             </tr>)
                     }

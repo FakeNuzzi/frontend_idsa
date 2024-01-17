@@ -4,28 +4,27 @@ import { useNavigate } from 'react-router-dom'
 import { getVisita } from '../../services/VisiteService'
 import { getSlot } from '../../services/SlotService'
 
-const AppuntamentiCardMedico = ({ appuntamento }) => {
+const AppuntamentiCardMedico = ({ id_paziente, id_visita, id_slot  }) => {
 
     const navigator = useNavigate();
 
     const [tipoVis, setTipoVisita] = useState('')
     const [dataOra, setDataOra] = useState('')
 
-    useEffect(() => {
+    function getInfo(id_visita, id_slot) {
 
-        getVisita(appuntamento.appuntamento.tipo_visita).then((response) => {
+        getVisita(id_visita).then((response) => {
             setTipoVisita(response.data.tipoVis);
         }).catch(error => {
             console.error(error);
         })
 
-        getSlot(appuntamento.appuntamento.slot).then((response) => {
+        getSlot(id_slot).then((response) => {
             setDataOra(response.data.DataOraSlot);
         }).catch(error => {
             console.error(error);
         })
-
-    }, [appuntamento.appuntamento.tipo_visita, appuntamento.appuntamento.slot])
+    }
 
     function visualizzaPaziente(id_paziente) {
         navigator(`/visualizzaPaziente/${id_paziente}`)
@@ -37,6 +36,7 @@ const AppuntamentiCardMedico = ({ appuntamento }) => {
 
     return (
         <div className='p-5 shadow-md shadow-black hover:shadow-2x1 border'>
+            {getInfo(id_visita, id_slot)}
             <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
                 <Grid item xs={6}>
                     <div className='flex cursor-pointer'>
@@ -46,6 +46,7 @@ const AppuntamentiCardMedico = ({ appuntamento }) => {
                         </div>
                     </div>
                 </Grid>
+                
                 <Grid item xs={4}>
                     <p>
                         <span>
@@ -54,7 +55,7 @@ const AppuntamentiCardMedico = ({ appuntamento }) => {
                     </p>
                     <p>
                         <span>
-                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaPaziente(appuntamento.appuntamento.id_paziente)}>visualizza paziente</button>
+                            <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaPaziente(id_paziente)}>visualizza paziente</button>
                         </span>
                     </p>
 

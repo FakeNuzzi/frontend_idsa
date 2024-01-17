@@ -16,23 +16,28 @@ const AppuntamentiHr = () => {
 
     useEffect(() => {
         getAllAppuntamenti();
-        getVisita(appuntamenti.tipo_visita).then((response) => {
-            setTipoVisita(response.data.tipoVis);
-        }).catch(error => {
-            console.error(error);
-        })
-
-        getSlot(appuntamenti.slot).then((response) => {
-            setDataOra(response.data.slot);
-            setDataOra(response.data.DataOraslot);
-        }).catch(error => {
-            console.error(error);
-        })
+        
     }, [])
 
     function getAllAppuntamenti() {
         listAppuntamenti().then((response) => {
             setAppuntamneti(response.data);
+        }).catch(error => {
+            console.error(error);
+        })
+    }
+
+    function getSpecifiche(id_slot,id_visita)
+    {
+
+        getVisita(id_visita).then((response) => {
+            setTipoVisita(response.data.tipoVis);
+        }).catch(error => {
+            console.error(error);
+        })
+
+        getSlot(id_slot).then((response) => {
+            setDataOra(response.data.DataOraslot);
         }).catch(error => {
             console.error(error);
         })
@@ -59,18 +64,21 @@ const AppuntamentiHr = () => {
                 <thead>
                     <tr>
                         <th>tipo</th>
-                        <th>giorno</th>
+                        <th>slot</th>
                         <th>pazinete</th>
                         <th>medico</th>
+                        <th>azioni</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         appuntamenti.map(appuntamento =>
-                            <tr key={tipoVis}>
-                                <td>{dataOra}</td>
-                                <td>{appuntamento.paziente}</td>
-                                <td>{appuntamento.medico}</td>
+                            
+                            <tr key={appuntamento.id_slot}>
+                                <td>{appuntamento.id_visita}</td>
+                                <td>{appuntamento.id_slot}</td>
+                                <td>{appuntamento.id_paziente}</td>
+                                <td>{appuntamento.id_medico}</td>
                                 <td>
                                     <button className='btn btn-danger' onClick={() => removeAppuntamento(appuntamento.id_app)}>Delete</button>
                                 </td>
