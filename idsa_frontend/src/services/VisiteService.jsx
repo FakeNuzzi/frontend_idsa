@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const REST_API_BASE_URL = 'http://localhost:8080/api/visita';
+const REST_API_BASE_URL = 'http://localhost:8080/api/visite';
 
 export const listVisite = () => axios.get(REST_API_BASE_URL);
 

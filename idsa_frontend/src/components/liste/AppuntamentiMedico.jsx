@@ -24,7 +24,8 @@ const AppuntamentiMedico = () => {
 
     function getAllAppuntamentiMedico(id_medico) {
         listAppuntamentiMedico(id_medico).then((response) => {
-            setAppuntamentiMedico(response.data);
+                setAppuntamentiMedico(response.data);
+                console.log(response.data); // This will print the response data to the console
         }).catch(error => {
             console.error(error);
         })

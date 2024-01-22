@@ -12,5 +12,5 @@ export const updateAppuntamento = (id_app, appuntamneto) => axios.put(REST_API_B
 
 export const deleteAppuntamento = (id_app) => axios.delete(REST_API_BASE_URL + '/' + id_app);
 
-export const listAppuntamentiMedico = (id_medico) => axios.get(REST_API_BASE_URL + '/' + id_medico);
+export const listAppuntamentiMedico = (id_medico) => axios.get(REST_API_BASE_URL + '/medico/' + id_medico);
 
