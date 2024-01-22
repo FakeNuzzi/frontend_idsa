@@ -20,7 +20,8 @@ const AppuntamentiCardMedico = ({ id_paziente, id_visita, id_slot  }) => {
         })
 
         getSlot(id_slot).then((response) => {
-            setDataOra(response.data.DataOraSlot);
+            console.log(response.data);
+            setDataOra(response.data.dataOraSlot);
         }).catch(error => {
             console.error(error);
         })
@@ -31,7 +32,7 @@ const AppuntamentiCardMedico = ({ id_paziente, id_visita, id_slot  }) => {
     }
 
     function visualizzaCartella() {
-        navigator(`/visualizzaCartella`)
+        navigator(`/visualizzaCartella/1`)
     }
 
     return (
