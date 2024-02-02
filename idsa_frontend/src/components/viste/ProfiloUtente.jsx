@@ -22,6 +22,7 @@ export default function ProfiloUtente() {
     const [data_n, setDataNascita] = useState('')
     const [cf, setCodiceFiscale] = useState('')
     const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const { id_paziente } = useParams();
 
@@ -31,6 +32,7 @@ export default function ProfiloUtente() {
         data_n: '',
         cf: '',
         email:'',
+        password: ''
     })
 
     const navigator = useNavigate();
@@ -43,6 +45,7 @@ export default function ProfiloUtente() {
                 setDataNascita(response.data.data_n);
                 setCodiceFiscale(response.data.cf);
                 setEmail(response.data.email);
+                setPassword(response.data.password);
             }).catch(error => {
                 console.error(error);
             })
@@ -53,7 +56,7 @@ export default function ProfiloUtente() {
         e.preventDefault();
 
         if (validateForm()) {
-            const paziente = { nome, cognome, data_n, cf,email }
+            const paziente = { nome, cognome, data_n, cf, email, password }
             console.log(paziente)
             if (id_paziente) {
                 updatePaziente(id_paziente, paziente).then((response) => {
@@ -108,6 +111,20 @@ export default function ProfiloUtente() {
             errorsCopy.cf = '';
         } else {
             errorsCopy.cf = 'Inserire codice fiscale';
+            valid = false;
+        }
+
+        if (email.trim()) {
+            errorsCopy.email = '';
+        } else {
+            errorsCopy.email = 'Inserire email';
+            valid = false;
+        }
+
+        if (password.trim()) {
+            errorsCopy.password = '';
+        } else {
+            errorsCopy.password = 'Inserire password';
             valid = false;
         }
 
@@ -234,6 +251,23 @@ export default function ProfiloUtente() {
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 value={cf}
                                 onChange={(e) => setCodiceFiscale(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    
+                    <div className="sm:col-span-2">
+                        <label htmlFor="password" className="block text-sm font-semibold leading-6 text-gray-900">
+                            Password
+                        </label>
+                        <div className="mt-2.5">
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                autoComplete="password"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                     </div>
