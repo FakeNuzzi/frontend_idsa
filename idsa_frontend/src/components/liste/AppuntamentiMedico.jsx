@@ -14,7 +14,7 @@ const AppuntamentiMedico = () => {
         { lable: "categoria quattro", value: "quattro" },
     ]
 
-    const [appuntamentiMedico, setAppuntamentiMedico] = useState([])
+    const [appuntamenti, setAppuntamentiMedico] = useState([])
 
     const navigator = useNavigate();
 
@@ -52,9 +52,30 @@ const AppuntamentiMedico = () => {
                     </div>
                 </Grid>
                 <Grid item xs={9}>
-                    <div className='space-y-5'>
-                        {appuntamentiMedico.map((item) => <AppuntamentiCardMedico key={item} id_paziente={item.id_paziente} id_visita={item.id_visita} id_slot={item.id_slot } />)}
-                    </div>
+                    <table className='table table-striped table-bordered'>
+                        <thead>
+                            <tr>
+                                    <th>Id_app</th>
+                                    <th>Pagato</th>
+                                    <th>Paziente</th>
+                                    <th>Visita</th>
+                                    <th>Slot</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {
+                                    appuntamenti.map(appuntamento =>
+                                        <tr key={appuntamento.id_app}>
+                                            <td>{appuntamento.id_app}</td>
+                                            <td>{appuntamento.pagato}</td>
+                                            <td>{appuntamento.id_paziente}</td>
+                                            <td>{appuntamento.id_visita}</td>
+                                            <td>{appuntamento.id_slot}</td>
+                                        </tr>
+                                    )
+                                }
+                        </tbody>
+                    </table>
                 </Grid>
             </Grid>
         </div>

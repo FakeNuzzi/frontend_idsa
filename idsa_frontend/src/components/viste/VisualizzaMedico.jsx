@@ -12,8 +12,6 @@ function classNames(...classes) {
 
 const VisualizzaMedico = () => {
 
-    
-
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
     const [data_n, setDataNascita] = useState('')

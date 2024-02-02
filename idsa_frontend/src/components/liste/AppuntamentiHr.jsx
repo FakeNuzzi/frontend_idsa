@@ -47,6 +47,14 @@ const AppuntamentiHr = () => {
         navigator('/MenuComponent')
     }
 
+    function addNewAppuntamento(){
+        navigator('/add-appuntamento')
+    }
+
+    function updatePaziente(id_paziente){
+        navigator(`/edit-appuntamento/${id_paziente}`)
+    }
+
     function removeAppuntamento(id_appuntamento) {
         console.log(id_appuntamento);
         deleteAppuntamento(id_appuntamento).then((response) => {
@@ -59,34 +67,38 @@ const AppuntamentiHr = () => {
     return (
         <div className='container'>
             <h2 className='text-center'>Lista di Tutti gli Appuntamenti</h2>
-            <button className='btn btn-primary mb-2'>aggiungi appuntamento</button>
+            <button className='btn btn-primary mb-2' onClick={addNewAppuntamento}>Aggiungi appuntamento</button>
             <table className='table table-striped table-bordered'>
                 <thead>
                     <tr>
-                        <th>tipo</th>
-                        <th>slot</th>
-                        <th>pazinete</th>
-                        <th>medico</th>
-                        <th>azioni</th>
+                        <th>Id_app</th>
+                        <th>Pagato</th>
+                        <th>Paziente</th>
+                        <th>Medico</th>
+                        <th>Visita</th>
+                        <th>Slot</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        appuntamenti.map(appuntamento =>
-                            
-                            <tr key={appuntamento.id_slot}>
-                                <td>{appuntamento.id_visita}</td>
-                                <td>{appuntamento.id_slot}</td>
+                        appuntamenti.map(appuntamento =>                            
+                            <tr key={appuntamento.id_app}>
+                                <td>{appuntamento.id_app}</td>
+                                <td>{appuntamento.pagato}</td>
                                 <td>{appuntamento.id_paziente}</td>
                                 <td>{appuntamento.id_medico}</td>
+                                <td>{appuntamento.id_visita}</td>
+                                <td>{appuntamento.id_slot}</td>
                                 <td>
                                     <button className='btn btn-danger' onClick={() => removeAppuntamento(appuntamento.id_app)}>Delete</button>
                                 </td>
-                            </tr>)
+                            </tr>
+                        )
                     }
                 </tbody>
-                <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
             </table>
+            <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
         </div>
     )
 }

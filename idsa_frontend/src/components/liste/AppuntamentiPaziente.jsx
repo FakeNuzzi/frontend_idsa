@@ -29,6 +29,7 @@ const AppuntamentiPaziente = () => {
     function getAllAppuntamenti() {
         listAppuntamenti().then((response) => {
             setAppuntamenti(response.data);
+            console.log(response.data);
         }).catch(error => {
             console.error(error);
         })
@@ -60,15 +61,36 @@ const AppuntamentiPaziente = () => {
                             <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaReferti()}>visualizza referti</button>
                             <button className='btn btn-info space-y-15 mt-2' onClick={() => visualizzaProfilo()}>visualizza profilo</button>
                         </div>
-                        
                     </div>
                 </Grid>
-                <Grid item xs={9}>
-                    <div className='space-y-5'>
-                        {appuntamenti.map((item) => <AppuntamentiCard key={item} pagato={item.pagato} medico={item.id_medico} paziente={item.id_paziente} id_app={item.id_app} id_visita={item.id_visita} id_paziente={item.id_paziente} id_slot={item.id_slot } />)}
-                    </div>
+                    <Grid item xs={9}>
+                        <table className='table table-striped table-bordered'>
+                            <thead>
+                                <tr>
+                                        <th>Pagato</th>
+                                        <th>Medico</th>
+                                        <th>Visita</th>
+                                        <th>Slot</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    {
+                                        appuntamenti.map(appuntamento =>
+                                            <tr key={appuntamento.id_app}>
+                                                <td>{appuntamento.pagato}</td>
+                                                <td>{appuntamento.id_medico}</td>
+                                                <td>{appuntamento.id_visita}</td>
+                                                <td>{appuntamento.id_slot}</td>
+                                            </tr>
+                                        )
+                                    }
+                            </tbody>
+                        </table>
                 </Grid>
             </Grid>
+            
+        
+
         </div>
     )
 }

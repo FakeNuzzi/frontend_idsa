@@ -16,7 +16,7 @@ import ProfiloUtente from './components/viste/ProfiloUtente'
 import AppuntamentiHr from './components/liste/AppuntamentiHr'
 import AppuntamentiMedico from './components/liste/AppuntamentiMedico'
 import ProfiloMedico from './components/viste/ProfiloMedico'
-
+import AppuntamentoForm from './components/viste/AppuntamentoForm'
 function App() {
 
   return (
@@ -40,6 +40,10 @@ function App() {
             <Route path='/add-medico' element={<ProfiloMedico />}></Route>
             {/* // http://localhost:3000/edit-medico/1 */}
             <Route path='/edit-medico/:id_medico' element={<ProfiloMedico />}></Route>
+            {/* // http://localhost:3000/add-appuntamento */}
+            <Route path='/add-appuntamento' element={<AppuntamentoForm />}></Route>
+            {/* // http://localhost:3000/edit-appuntamento/1 */}
+            <Route path='/edit-appuntamento/:id_appuntamento' element={<AppuntamentoForm />}></Route>
             {/* // http://localhost:3000/visualizzaPaziente/1 */}
             <Route path='/visualizzaPaziente/:idPaziente' element={<VisualizzaPaziente />}></Route>
             {/* // http://localhost:3000/visualizzaMedico/1 */}
