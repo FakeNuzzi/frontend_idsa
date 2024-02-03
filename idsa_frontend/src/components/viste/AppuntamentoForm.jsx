@@ -20,19 +20,19 @@ export default function AppuntamentoForm() {
     // appuntamento: pagato, paziente,medico, visita, slot
 
     const [pagato, setPagato] = useState(false)
-    const [paziente, setPaziente] = useState('')
-    const [medico, setMedico] = useState('')
-    const [visita, setVisita] = useState('')
-    const [slot, setSlot] = useState('')
+    const [id_paziente, setPaziente] = useState('')
+    const [id_medico, setMedico] = useState('')
+    const [id_visita, setVisita] = useState('')
+    const [id_slot, setSlot] = useState('')
 
     const {id_app} = useParams();
 
     const [errors, setErrors] = useState({
         pagato: '',
-        paziente: '',
-        medico: '',
-        visita: '',
-        slot: ''
+        id_paziente: '',
+        id_medico: '',
+        id_visita: '',
+        id_slot: ''
     })
 
     const navigator = useNavigate();
@@ -51,26 +51,21 @@ export default function AppuntamentoForm() {
         }
     }, [id_app])
 
-    function saveOrUpdatePaziente() {
-        //e.preventDefault();
+    function saveOrUpdateAppuntamento(e) {
+        e.preventDefault();
 
         if (validateForm()) {
             const appuntamento = {
-                pagato, paziente, medico, visita, slot}
-            console.log(appuntamento)
+                pagato, id_paziente, id_medico, id_visita, id_slot}
             if (id_app) {
                 updateAppuntamento(id_app, appuntamento).then((response) => {
-                    console.log(response.data)
-                    
                 }).catch(error => {
                     console.error(error);
                 })
             }
             else {
-                createAppuntamento(appuntamento).then((response) => {
-                    response.data
-                    console.log(response.data);
-                    
+                console.log(appuntamento)
+                createAppuntamento(appuntamento).then((response) => {     
                 }).catch(error => {
                     console.error(error);
                 })
@@ -84,35 +79,35 @@ export default function AppuntamentoForm() {
         let valid = true;
         const errorsCopy = { ...errors }
 
-        if (paziente.trim()) {
-            errorsCopy.paziente = '';
+        if (id_paziente.trim()) {
+            errorsCopy.id_paziente = '';
         }
         else {
-            errorsCopy.paziente = 'Inserire paziente';
+            errorsCopy.id_paziente = 'Inserire paziente';
             valid = false;
         }
 
-        if (medico.trim()) {
-            errorsCopy.medico = '';
+        if (id_medico.trim()) {
+            errorsCopy.id_medico = '';
         }
         else {
-            errorsCopy.medico = 'Inserire medico';
+            errorsCopy.id_medico = 'Inserire medico';
             valid = false;
         }
 
-        if (visita.trim()) {
-            errorsCopy.visita = '';
+        if (id_visita.trim()) {
+            errorsCopy.id_visita = '';
         }
         else {
             errorsCopy.visita = 'Inserire visita';
             valid = false;
         }
 
-        if (slot.trim()) {
-            errorsCopy.slot = '';
+        if (id_slot.trim()) {
+            errorsCopy.id_slot = '';
         }
         else {
-            errorsCopy.slot = 'Inserire slot';
+            errorsCopy.id_slot = 'Inserire slot';
             valid = false;
         }
 
@@ -123,10 +118,10 @@ export default function AppuntamentoForm() {
 
     function pageTitle() {
         if (id_app) {
-            return 'Update Appuntamento';
+            return <h2 className='text-center'>Update Appuntamento</h2>
         }
         else {
-            return 'Add Appuntamento';
+            return <h2 className='text-center'>Add Appuntamento</h2>
         }
     }
 
@@ -135,119 +130,84 @@ export default function AppuntamentoForm() {
     }
 
     return (
-        <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-            <div
-                className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-                aria-hidden="true"
-            >
-                <div
-                    className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
-                    style={{
-                        clipPath:
-                            'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                    }}
-                />
-            </div>
-            <div className="mx-auto max-w-2xl text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <div className='container'>
+            <br /> <br />
+            <div className='row'>
+                <div className='card col-md-6 offset-md-3 offset-md-3'>
                     {
                         pageTitle()
                     }
-                </h2>
+                    <div className='card-body'>
+                        <form>
+                            <div className='form-group mb-2'>
+                                <label htmlFor='paziente'>Paziente:</label>
+                                <input
+                                    id='paziente'
+                                    type='text'
+                                    placeholder='Inserire paziente'
+                                    name='paziente'
+                                    value={id_paziente}
+                                    className={`form-control ${ errors.id_paziente ? 'is-invalid': '' }`}
+                                    onChange={(e) => setPaziente(e.target.value)}
+                                    autoComplete='paziente'
+                                />
+                                { errors.id_paziente && <div className='invalid-feedback'> { errors.id_paziente} </div> }
+                            </div>
+
+                            <div className='form-group mb-2'>
+                                <label htmlFor='medico'>Medico:</label>
+                                <input
+                                    id='medico'
+                                    type='text'
+                                    placeholder='Inserire medico'
+                                    name='medico'
+                                    value={id_medico}
+                                    className={`form-control ${ errors.id_medico ? 'is-invalid': '' }`}
+                                    onChange={(e) => setMedico(e.target.value)}
+                                    autoComplete='medico'
+                                />
+                                { errors.id_medico && <div className='invalid-feedback'> { errors.id_medico} </div> }
+                            </div>
+
+                            <div className='form-group mb-2'>
+                                <label htmlFor='visita'>Visita:</label>
+                                <input
+                                    id='visita'
+                                    type='text'
+                                    placeholder='Inserire visita'
+                                    name='visita'
+                                    value={id_visita}
+                                    className={`form-control ${ errors.id_visita ? 'is-invalid': '' }`}
+                                    onChange={(e) => setVisita(e.target.value)}
+                                    autoComplete='visita'
+                                />
+                                { errors.id_visita && <div className='invalid-feedback'> { errors.id_visita} </div> }
+                            </div>
+
+                            <div className='form-group mb-2'>
+                                <label htmlFor='slot'>Slot:</label>
+                                <input
+                                    id='slot'
+                                    type='text'
+                                    placeholder='Inserire slot'
+                                    name='slot'
+                                    value={id_slot}
+                                    className={`form-control ${ errors.id_slot ? 'is-invalid': '' }`}
+                                    onChange={(e) => setSlot(e.target.value)}
+                                    autoComplete='slot'
+                                />
+                                { errors.id_slot && <div className='invalid-feedback'> { errors.id_slot} </div> }
+                            </div>
+
+                            <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
+                            <button className='btn btn-success' onClick={saveOrUpdateAppuntamento} >Submit</button>
+                        </form>
+    
+                    </div>
+                </div>
+    
             </div>
-            <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                    <div>
-                        <label htmlFor="paziente" className="block text-sm font-semibold leading-6 text-gray-900">
-                            Paziente
-                        </label>
-                        <div className="mt-2.5">
-                            <input
-                                type="text"
-                                name="paziente"
-                                id="paziente"
-                                autoComplete="paziente"
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 form-control ${errors.visita ? 'is-invalid' : ''}`}
-                                value={paziente}
-                                onChange={(e) => setPaziente(e.target.value)}
-
-                            />
-                            {errors.paziente && <div className='invalid-feedback'> {errors.paziente}</div>}
-                        </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="medico" className="block text-sm font-semibold leading-6 text-gray-900">
-                            Medico
-                        </label>
-                        <div className="mt-2.5">
-                            <input
-                                type="text"
-                                name="medico"
-                                id="medico"
-                                autoComplete="medico"
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 form-control ${errors.visita ? 'is-invalid' : ''}`}
-                                value={medico}
-                                onChange={(e) => setMedico(e.target.value)}
-                            />
-                            {errors.medico && <div className='invalid-feedback'> {errors.medico}</div>}
-                        </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="visita" className="block text-sm font-semibold leading-6 text-gray-900">
-                            Visita
-                        </label>
-                        <div className="mt-2.5">
-                            <input
-                                type="text"
-                                name="visita"
-                                id="visita"
-                                autoComplete="visita"
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 form-control ${errors.visita ? 'is-invalid' : ''}`}
-                                value={visita}
-                                onChange={(e) => setVisita(e.target.value)}
-                            />
-                            {errors.visita && <div className='invalid-feedback'> {errors.visita}</div>}
-                        </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="slot" className="block text-sm font-semibold leading-6 text-gray-900">
-                            Slot
-                        </label>
-                        <div className="mt-2.5">
-                            <input
-                                type="text"
-                                name="slot"
-                                id="slot"
-                                autoComplete="slot"
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 form-control ${errors.visita ? 'is-invalid' : ''}`}
-                                value={slot}
-                                onChange={(e) => setSlot(e.target.value)}
-                            />
-                            {errors.slot && <div className='invalid-feedback'> {errors.slot}</div>}
-                        </div>
-                    </div>
-
-                </div>
-                <div className="mt-10">
-                    <button
-                        type="submit"
-                        className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={() => saveOrUpdatePaziente()}
-                    >
-                        Modifica
-                    </button>
-                    <button
-                        type="submit"
-                        className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 mt-5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={() => window.history.back()}
-                    >
-                        Torna indietro
-                    </button>
-                </div>
-            </form>
+    
         </div>
     )
 }

@@ -48,9 +48,7 @@ export default function ProfiloUtente() {
     }, [id_paziente])
 
     function saveOrUpdatePaziente(e) {
-        console.log('form is valid')
         e.preventDefault();
-        console.log('form is valid')
         if (validateForm()) {
             
             const paziente = { nome, cognome, data_n, cf, email, password }
@@ -148,97 +146,101 @@ export default function ProfiloUtente() {
             <br /> <br />
             <div className='row'>
                 <div className='card col-md-6 offset-md-3 offset-md-3'>
-                   {
+                    {
                         pageTitle()
-                   }
+                    }
                     <div className='card-body'>
                         <form>
                             <div className='form-group mb-2'>
-                                <label className='form-label'>First Name:</label>
-                                    <input
-                                        type='text'
-                                        placeholder='Inserire nome'
-                                        name='nome'
-                                        value={nome}
-                                        className={`form-control ${ errors.nome ? 'is-invalid': '' }`}
-                                        onChange={(e) => setNome(e.target.value)}
-                                    >
-                                    </input>
+                                <label htmlFor='firstname'>First Name:</label>
+                                <input
+                                    id='firstname'
+                                    type='text'
+                                    placeholder='Inserire nome'
+                                    name='nome'
+                                    value={nome}
+                                    className={`form-control ${ errors.nome ? 'is-invalid': '' }`}
+                                    onChange={(e) => setNome(e.target.value)}
+                                    autoComplete='nome'
+                                />
                                 { errors.nome && <div className='invalid-feedback'> { errors.nome} </div> }
                             </div>
 
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Last Name:</label>
-                                    <input
-                                        type='text'
-                                        placeholder='Inserire cognome'
-                                        name='cognome'
-                                        value={cognome}
-                                        className={`form-control ${ errors.cognome ? 'is-invalid': '' }`}
-                                        onChange={(e) => setCognome(e.target.value)}
-                                    >
-                                    </input>
+                                <label htmlFor='lastname'>Last Name:</label>
+                                <input
+                                    id='lastname'
+                                    type='text'
+                                    placeholder='Inserire cognome'
+                                    name='cognome'
+                                    value={cognome}
+                                    className={`form-control ${ errors.cognome ? 'is-invalid': '' }`}
+                                    onChange={(e) => setCognome(e.target.value)}
+                                    autoComplete='cognome'
+                                />
                                 { errors.cognome && <div className='invalid-feedback'> { errors.cognome} </div> }
                             </div>
 
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Date of Birth:</label>
-                                    <input
-                                        type='date'
-                                        placeholder='Inserire data di nascita'
-                                        name='data_n'
-                                        value={data_n}
-                                        className={`form-control ${ errors.data_n ? 'is-invalid': '' }`}
-                                        onChange={(e) => setDataNascita(e.target.value)}
-                                    >
-                                    </input>
+                                <label htmlFor='date'>Date of Birth:</label>
+                                <input
+                                    id='date'
+                                    type='date'
+                                    placeholder='Inserire data di nascita'
+                                    name='data_n'
+                                    value={data_n}
+                                    className={`form-control ${ errors.data_n ? 'is-invalid': '' }`}
+                                    onChange={(e) => setDataNascita(e.target.value)}
+                                    autoComplete='data_n'
+                                />
                                 { errors.data_n && <div className='invalid-feedback'> { errors.data_n} </div> }
                             </div>
 
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Codice Fiscale:</label>
-                                    <input
-                                        type='text'
-                                        placeholder='Inserire codice fiscale'
-                                        name='cf'
-                                        value={cf}
-                                        className={`form-control ${ errors.cf ? 'is-invalid': '' }`}
-                                        onChange={(e) => setCodiceFiscale(e.target.value)}
-                                    >
-                                    </input>
+                                <label htmlFor='cf'>Codice Fiscale:</label>
+                                <input
+                                    id='cf'
+                                    type='text'
+                                    placeholder='Inserire codice fiscale'
+                                    name='cf'
+                                    value={cf}
+                                    className={`form-control ${ errors.cf ? 'is-invalid': '' }`}
+                                    onChange={(e) => setCodiceFiscale(e.target.value)}
+                                    autoComplete='cf'
+                                />
                                 { errors.cf && <div className='invalid-feedback'> { errors.cf} </div> }
                             </div>
 
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Email:</label>
-                                    <input
-                                        type='email'
-                                        placeholder='Inserire email'
-                                        name='email'
-                                        value={email}
-                                        className={`form-control ${ errors.email ? 'is-invalid': '' }`}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    >
-                                    </input>
+                                <label htmlFor='email'>Email:</label>
+                                <input
+                                    id='email'
+                                    type='email'
+                                    placeholder='Inserire email'
+                                    name='email'
+                                    value={email}
+                                    className={`form-control ${ errors.email ? 'is-invalid': '' }`}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    autoComplete='email'
+                                />
                                 { errors.email && <div className='invalid-feedback'> { errors.email} </div> }
                             </div>
 
                             <div className='form-group mb-2'>
-                                <label className='form-label'>Password:</label>
-                                    <input
-                                        type='password'
-                                        placeholder='Inserire password'
-                                        name='password'
-                                        value={password}
-                                        className={`form-control ${ errors.password ? 'is-invalid': '' }`}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    >
-                                    </input>
+                                <label htmlFor='password'>Password:</label>
+                                <input
+                                    id='password'
+                                    type='password'
+                                    placeholder='Inserire password'
+                                    name='password'
+                                    value={password}
+                                    className={`form-control ${ errors.password ? 'is-invalid': '' }`}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
                                 { errors.password && <div className='invalid-feedback'> { errors.password} </div> }
                             </div>
 
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
-    
                             <button className='btn btn-success' onClick={saveOrUpdatePaziente} >Submit</button>
                         </form>
     

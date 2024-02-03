@@ -57,9 +57,9 @@ const ListMedicoComponent = () => {
                         <th>Cognome</th>
                         <th>Data di Nascita</th>
                         <th>Codice Fiscale</th>
-                        <th>Azioni</th>
                         <th>Stipendio</th>
                         <th>Specializzazione</th>
+                        <th>Actions</th>
                         
                     </tr>
                 </thead>
@@ -81,8 +81,8 @@ const ListMedicoComponent = () => {
                             </tr>)
                     }
                 </tbody>
-                <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
             </table>
+            <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
         </div>
     )
 }
