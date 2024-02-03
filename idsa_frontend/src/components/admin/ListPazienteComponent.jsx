@@ -79,8 +79,9 @@ const ListPazienteComponent = () => {
                             </tr>)
                     }
                 </tbody>
-                <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
+                
             </table>
+            <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
         </div>
     )
 }
