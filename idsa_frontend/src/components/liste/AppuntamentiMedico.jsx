@@ -56,7 +56,6 @@ const AppuntamentiMedico = () => {
                         <thead>
                             <tr>
                                     <th>Id_app</th>
-                                    <th>Pagato</th>
                                     <th>Paziente</th>
                                     <th>Visita</th>
                                     <th>Slot</th>
@@ -67,7 +66,6 @@ const AppuntamentiMedico = () => {
                                     appuntamenti.map(appuntamento =>
                                         <tr key={appuntamento.id_app}>
                                             <td>{appuntamento.id_app}</td>
-                                            <td>{appuntamento.pagato}</td>
                                             <td>{appuntamento.id_paziente}</td>
                                             <td>{appuntamento.id_visita}</td>
                                             <td>{appuntamento.id_slot}</td>

@@ -51,8 +51,8 @@ const AppuntamentiHr = () => {
         navigator('/add-appuntamento')
     }
 
-    function updatePaziente(id_paziente){
-        navigator(`/edit-appuntamento/${id_paziente}`)
+    function updateAppuntamento(id_appuntamento) {
+        navigator('/edit-appuntamento/' + id_appuntamento)
     }
 
     function removeAppuntamento(id_appuntamento) {
@@ -85,7 +85,7 @@ const AppuntamentiHr = () => {
                         appuntamenti.map(appuntamento =>                            
                             <tr key={appuntamento.id_app}>
                                 <td>{appuntamento.id_app}</td>
-                                <td>{appuntamento.pagato}</td>
+                                <td>{appuntamento.pagato ? 'Si' : 'No'}</td>
                                 <td>{appuntamento.id_paziente}</td>
                                 <td>{appuntamento.id_medico}</td>
                                 <td>{appuntamento.id_visita}</td>

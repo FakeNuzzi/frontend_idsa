@@ -10,8 +10,6 @@ function classNames(...classes) {
 }
 
 export default function ProfiloUtente() {
-    const [agreed, setAgreed] = useState(false)
-
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
     const [data_n, setDataNascita] = useState('')
@@ -52,10 +50,8 @@ export default function ProfiloUtente() {
         if (validateForm()) {
             
             const paziente = { nome, cognome, data_n, cf, email, password }
-            console.log(paziente)
             if (id_paziente) {
                 updatePaziente(id_paziente, paziente).then((response) => {
-                    console.log(response.data)
                     navigator(`/pazienti`)
                 }).catch(error => {
                     console.error(error);

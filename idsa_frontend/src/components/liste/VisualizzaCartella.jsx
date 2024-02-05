@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { listReferti} from '../../services/RefertoService'
-import { useNavigate } from 'react-router-dom'
+import { listReferti, listRefertiByPaziente} from '../../services/RefertoService'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 const VisualizzaCartella = () => {
 
     const [referti, setReferti] = useState([])
+
+    const { idPaziente } = useParams();
 
     const navigator = useNavigate();
 
@@ -14,7 +16,7 @@ const VisualizzaCartella = () => {
     }, [])
 
     function getAllReferti() {
-        listReferti().then((response) => {
+        listRefertiByPaziente(idPaziente).then((response) => {
             setReferti(response.data);
         }).catch(error => {
             console.error(error);
@@ -32,25 +34,25 @@ const VisualizzaCartella = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>codice visita</th>
-                        <th>referto</th>
-                        <th>prescrizione</th>
+                        <th>Referto</th>
+                        <th>Prescrizione</th>
+                        <th>Appuntamento</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     {
                         referti.map(referto =>
-                            <tr key={referto.id_appuntamento}>
-                                <td>{referto.id_appuntamento}</td>
+                            <tr key={referto.id_ris}>
+                                <td>{referto.id_ris}</td>
                                 <td>{referto.referto}</td>
                                 <td>{referto.prescr}</td>
-                             
+                                <td>{referto.id_appuntamento}</td> 
                             </tr>)
                     }
                 </tbody>
-                <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
             </table>
+            <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
         </div>
     )
 }
