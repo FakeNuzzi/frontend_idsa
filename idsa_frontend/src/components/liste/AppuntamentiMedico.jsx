@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
-import AppuntamentiCardMedico from './AppuntamentiCardMedico'
 import { listAppuntamentiMedico } from '../../services/AppuntamentiService'
 import { useNavigate } from 'react-router-dom'
 

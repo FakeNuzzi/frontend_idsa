@@ -16,7 +16,6 @@ const AppuntamentiHr = () => {
 
     useEffect(() => {
         getAllAppuntamenti();
-        
     }, [])
 
     function getAllAppuntamenti() {

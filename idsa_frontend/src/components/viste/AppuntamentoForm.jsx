@@ -1,6 +1,3 @@
-
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Switch } from '@headlessui/react'
 import { createAppuntamento, getAppuntamento, updateAppuntamento } from '../../services/AppuntamentiService'
 import { useNavigate, useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
@@ -10,14 +7,7 @@ import React, { useEffect, useState } from 'react'
 *questa e la pagina in cui compaiono le informazioni dell utente viene acceduta sia dalutente che dagli admin
  */
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
-
 export default function AppuntamentoForm() {
-    const [agreed, setAgreed] = useState(false)
-
-    // appuntamento: pagato, paziente,medico, visita, slot
 
     const [pagato, setPagato] = useState(false)
     const [id_paziente, setPaziente] = useState('')

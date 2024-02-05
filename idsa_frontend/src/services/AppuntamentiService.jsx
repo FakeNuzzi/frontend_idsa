@@ -14,3 +14,4 @@ export const deleteAppuntamento = (id_app) => axios.delete(REST_API_BASE_URL + '
 
 export const listAppuntamentiMedico = (id_medico) => axios.get(REST_API_BASE_URL + '/medico/' + id_medico);
 
+export const listAppuntamentiPaziente = (id_paziente) => axios.get(REST_API_BASE_URL + '/paziente/' + id_paziente);

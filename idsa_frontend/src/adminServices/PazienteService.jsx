@@ -11,3 +11,5 @@ export const getPaziente = (id_paziente) => axios.get(REST_API_BASE_URL + '/' + 
 export const updatePaziente = (id_paziente, paziente) => axios.put(REST_API_BASE_URL + '/' + id_paziente, paziente);
 
 export const deletePaziente = (id_paziente) => axios.delete(REST_API_BASE_URL + '/' + id_paziente);
+
+export const pazienteByEmail = (email) => axios.get(REST_API_BASE_URL + '/email/' + email);

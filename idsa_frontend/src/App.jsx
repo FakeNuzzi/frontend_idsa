@@ -17,6 +17,8 @@ import AppuntamentiHr from './components/liste/AppuntamentiHr'
 import AppuntamentiMedico from './components/liste/AppuntamentiMedico'
 import ProfiloMedico from './components/viste/ProfiloMedico'
 import AppuntamentoForm from './components/viste/AppuntamentoForm'
+import PazienteLogin from './components/login/PazienteLogin'
+
 function App() {
 
   return (
@@ -52,8 +54,8 @@ function App() {
             <Route path='/visualizzaVisita/:idVisita' element={<VisualizzaVisita />}></Route>
             {/* // http://localhost:3000/visualizzaCartella/1 */}
             <Route path='/visualizzaCartella/:idPaziente' element={<VisualizzaCartella />}></Route>
-            {/* // http://localhost:3000/appuntamentiPaziente */}
-            <Route path='/appuntamentiPaziente' element={<AppuntamentiPaziente />}></Route>
+            {/* // http://localhost:3000/appuntamentiPaziente/1 */}
+            <Route path='/appuntamentiPaziente/:idPaziente' element={<AppuntamentiPaziente />}></Route>
             {/* // http://localhost:3000/menuVisite */}
             <Route path='/menuVisite' element={<MenuVisite />}></Route>
             {/* // http://localhost:3000/profiloUtente/1 */}
@@ -62,6 +64,9 @@ function App() {
             <Route path='/appuntamentiHr' element={<AppuntamentiHr />}></Route>
             {/* // http://localhost:3000/appuntamentiMedico */}
             <Route path='/appuntamentiMedico' element={<AppuntamentiMedico />}></Route>
+            {/* // http://localhost:3000/loginPaziente */}
+            <Route path='/loginPaziente' element={< PazienteLogin />}></Route>
+
           </Routes>
         <FooterComponent />
       </BrowserRouter>
