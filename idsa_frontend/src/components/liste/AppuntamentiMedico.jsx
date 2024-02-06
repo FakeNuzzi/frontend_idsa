@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import { listAppuntamentiMedico } from '../../services/AppuntamentiService'
-import { useNavigate } from 'react-router-dom'
-
-
+import { useNavigate, useParams } from 'react-router-dom'
 
 const AppuntamentiMedico = () => {
-    const orderStatus = [
-        { lable: "categoria uno", value: "uno" },
-        { lable: "categoria due", value: "due" },
-        { lable: "categoria tre", value: "tre" },
-        { lable: "categoria quattro", value: "quattro" },
-    ]
 
     const [appuntamenti, setAppuntamentiMedico] = useState([])
 
     const navigator = useNavigate();
 
+    const { idMedico } = useParams();
+
     useEffect(() => {
-        getAllAppuntamentiMedico(1);
+        getAllAppuntamentiMedico(idMedico);
     }, [])
 
     function getAllAppuntamentiMedico(id_medico) {
         listAppuntamentiMedico(id_medico).then((response) => {
-                setAppuntamentiMedico(response.data);
-                console.log(response.data); // This will print the response data to the console
+            setAppuntamentiMedico(response.data);
         }).catch(error => {
             console.error(error);
         })

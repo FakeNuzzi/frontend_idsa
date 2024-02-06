@@ -3,12 +3,6 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 const VisualizzaMedico = () => {
 
@@ -20,7 +14,7 @@ const VisualizzaMedico = () => {
     const [stipendio, setStipendio] = useState('')
     const [specializ, setSpecializ] = useState('')
 
-    const {id_utente } = useParams();
+    const {id_medico } = useParams();
 
     useEffect(() => {
         if (id_utente) {

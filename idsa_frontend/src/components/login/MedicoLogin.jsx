@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { pazienteByEmail } from '../../adminServices/PazienteService'
+import { medicoByEmail } from '../../adminServices/MedicoService'
 
-export default function PazienteLogin(){
+export default function MedicoLogin(){
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -37,13 +37,13 @@ export default function PazienteLogin(){
         navigator(`/`)
     }
 
-    function loginPazienteEvaluation(email, password, e) {
+    function loginMedicoEvaluation(email, password, e) {
         e.preventDefault();
 
         if (validateForm()) {
-            pazienteByEmail(email).then((response) => {
+            medicoByEmail(email).then((response) => {
                 if (response.data.password === password) {
-                    navigator(`/appuntamentiPaziente/1`)
+                    navigator(`/appuntamentiMedico/1`)
                 }
             }).catch(error => {
                 console.error(error);
@@ -55,7 +55,7 @@ export default function PazienteLogin(){
         <div className='container'>
             <br /> <br />
             <div className='row'>
-                <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Paziente' }
+                <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Medico' }
                     <div className='card-body'>
                         <form onSubmit={(e) => loginMedicoEvaluation(email, password, e)}>
                             <div className='form-group mb-2'>
@@ -79,7 +79,7 @@ export default function PazienteLogin(){
                                 />
                             </div>
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
-                            <button className='btn btn-success' onClick={(e) => loginPazienteEvaluation(email, password, e)} >Submit</button>
+                            <button className='btn btn-success' onClick={(e) => loginMedicoEvaluation(email, password, e)} >Submit</button>
                         </form>
                     </div>
                 </div>

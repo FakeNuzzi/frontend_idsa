@@ -18,6 +18,9 @@ import AppuntamentiMedico from './components/liste/AppuntamentiMedico'
 import ProfiloMedico from './components/viste/ProfiloMedico'
 import AppuntamentoForm from './components/viste/AppuntamentoForm'
 import PazienteLogin from './components/login/PazienteLogin'
+import MedicoLogin from './components/login/MedicoLogin'
+import AdminLogin from './components/login/AdminLogin'
+import HrLogin from './components/login/HrLogin'
 
 function App() {
 
@@ -62,10 +65,16 @@ function App() {
             <Route path='/profiloUtente/:idPaziente' element={<ProfiloUtente />}></Route>
             {/* // http://localhost:3000/appuntamentiHr */}
             <Route path='/appuntamentiHr' element={<AppuntamentiHr />}></Route>
-            {/* // http://localhost:3000/appuntamentiMedico */}
-            <Route path='/appuntamentiMedico' element={<AppuntamentiMedico />}></Route>
+            {/* // http://localhost:3000/appuntamentiMedico/1 */}
+            <Route path='/appuntamentiMedico/:idMedico' element={<AppuntamentiMedico />}></Route>
             {/* // http://localhost:3000/loginPaziente */}
             <Route path='/loginPaziente' element={< PazienteLogin />}></Route>
+            {/* // http://localhost:3000/loginMedico */}
+            <Route path='/loginMedico' element={< MedicoLogin />}></Route>
+            {/* // http://localhost:3000/loginAdmin */}
+            <Route path='/loginAdmin' element={< AdminLogin />}></Route>
+            {/* // http://localhost:3000/loginHr */}
+            <Route path='/loginHr' element={< HrLogin />}></Route>
 
           </Routes>
         <FooterComponent />

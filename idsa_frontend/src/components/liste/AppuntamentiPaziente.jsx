@@ -11,19 +11,19 @@ la lista degli appuntamenti futuri e una serie di pulsanti che vanno alle altre 
 
 const AppuntamentiPaziente = () => {
 
-    const [appuntamenti, setAppuntamenti] = useState([])
+    const [appuntamenti, setAppuntamentiPaziente] = useState([])
 
     const navigator = useNavigate();
 
     const { idPaziente } = useParams();
 
     useEffect(() => {
-        getAllAppuntamenti(idPaziente);
+        getAllAppuntamentiPaziente(idPaziente);
     }, [])
 
-    function getAllAppuntamenti(idPaziente) {
+    function getAllAppuntamentiPaziente(idPaziente) {
         listAppuntamentiPaziente(idPaziente).then((response) => {
-            setAppuntamenti(response.data);
+            setAppuntamentiPaziente(response.data);
         }).catch(error => {
             console.error(error);
         })
@@ -44,7 +44,7 @@ const AppuntamentiPaziente = () => {
     function pagaAppuntamento(appuntamento) {
         appuntamento.pagato = true;
         updateAppuntamento(appuntamento.id_app, appuntamento).then(() => {
-            getAllAppuntamenti();
+            getAllAppuntamentiPaziente();
         })
     }
 

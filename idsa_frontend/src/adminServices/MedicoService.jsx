@@ -12,3 +12,5 @@ export const getMedico = (id_medico) => axios.get(REST_API_BASE_URL + '/' + id_m
 export const updateMedico = (id_medico, medico) => axios.put(REST_API_BASE_URL + '/' + id_medico, medico);
 //utilizato in admin per eliminare il singolo medico 
 export const deleteMedico = (id_medico) => axios.delete(REST_API_BASE_URL + '/' + id_medico);
+
+export const medicoByEmail = (email) => axios.get(REST_API_BASE_URL + '/email/' + email);

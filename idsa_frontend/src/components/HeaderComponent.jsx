@@ -8,9 +8,9 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: 'Utente', href: '/loginPaziente', current: false },
-    { name: 'Admin', href: '/MenuComponent', current: false },
-    { name: 'HR', href: '/AppuntamentiHr', current: false },
-    { name: 'Medico', href: '/AppuntamentiMedico', current: false },
+    { name: 'Admin', href: '/loginAdmin', current: false },
+    { name: 'HR', href: '/loginHr', current: false },
+    { name: 'Medico', href: '/loginMedico', current: false },
 ]
 
 function classNames(...classes) {

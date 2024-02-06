@@ -2,13 +2,6 @@ import React from 'react'
 import { createPaziente, getPaziente, updatePaziente } from '../../adminServices/PazienteService'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 const VisualizzaPaziente = () => {
 

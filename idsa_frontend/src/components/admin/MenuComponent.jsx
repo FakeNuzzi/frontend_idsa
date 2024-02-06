@@ -11,9 +11,6 @@ const MenuComponent = () => {
     function menuMedici() {
         navigator('/medici')
     }
-
-    
-
     
         return (
             <section className="pb-10 pt-20 dark:bg-dark lg:pb-10 lg:pt-[50px]">
