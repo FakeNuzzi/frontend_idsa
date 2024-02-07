@@ -21,6 +21,7 @@ import PazienteLogin from './components/login/PazienteLogin'
 import MedicoLogin from './components/login/MedicoLogin'
 import AdminLogin from './components/login/AdminLogin'
 import HrLogin from './components/login/HrLogin'
+import ElencoSlot from './components/liste/ElencoSlot'
 
 function App() {
 
@@ -59,8 +60,8 @@ function App() {
             <Route path='/visualizzaCartella/:idPaziente' element={<VisualizzaCartella />}></Route>
             {/* // http://localhost:3000/appuntamentiPaziente/1 */}
             <Route path='/appuntamentiPaziente/:idPaziente' element={<AppuntamentiPaziente />}></Route>
-            {/* // http://localhost:3000/menuVisite */}
-            <Route path='/menuVisite' element={<MenuVisite />}></Route>
+            {/* // http://localhost:3000/menuVisite/1 */}
+            <Route path='/menuVisite/:idPaziente' element={<MenuVisite />}></Route>
             {/* // http://localhost:3000/profiloUtente/1 */}
             <Route path='/profiloUtente/:idPaziente' element={<ProfiloUtente />}></Route>
             {/* // http://localhost:3000/appuntamentiHr */}
@@ -75,6 +76,8 @@ function App() {
             <Route path='/loginAdmin' element={< AdminLogin />}></Route>
             {/* // http://localhost:3000/loginHr */}
             <Route path='/loginHr' element={< HrLogin />}></Route>
+            {/* // http://localhost:3000/elencoSlot/1/1/1 */}
+            <Route path='/elencoSlot/:idPaziente/:idMedico/:idVis' element={< ElencoSlot />}></Route>
 
           </Routes>
         <FooterComponent />

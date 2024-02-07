@@ -43,7 +43,7 @@ export default function HrLogin(){
         <div className='container'>
             <br /> <br />
             <div className='row'>
-                <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Paziente' }
+                <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Human Resources' }
                     <div className='card-body'>
                         <form onSubmit={(e) => loginHrEvaluation(password, e)}>
                             <div className='form-group mb-2'>

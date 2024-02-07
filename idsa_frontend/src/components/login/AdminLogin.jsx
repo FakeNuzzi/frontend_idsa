@@ -49,7 +49,7 @@ export default function AdminLogin(){
         <div className='container'>
             <br /> <br />
             <div className='row'>
-                <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Paziente' }
+                <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Admin' }
                     <div className='card-body'>
                         <form onSubmit={(e) => loginAdminEvaluation(password, e)}>
                             <div className='form-group mb-2'>

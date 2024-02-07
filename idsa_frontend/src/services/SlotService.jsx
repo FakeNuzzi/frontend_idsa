@@ -12,3 +12,5 @@ export const updateSlot = (id_slot, slot) => axios.put(REST_API_BASE_URL + '/' +
 
 export const deleteSlot = (id_appuntamento) => axios.delete(REST_API_BASE_URL + '/' + id_appuntamento);
 
+export const listFreeSlots = () => axios.get(REST_API_BASE_URL + '/free');
+

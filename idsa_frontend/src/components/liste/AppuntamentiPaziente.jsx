@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
-import { listAppuntamentiPaziente, updateAppuntamento} from '../../services/AppuntamentiService'
+import { listAppuntamentiPaziente, updateAppuntamento, deleteAppuntamento} from '../../services/AppuntamentiService'
 import { useNavigate, useParams } from 'react-router-dom'
 
 /*
@@ -30,10 +30,10 @@ const AppuntamentiPaziente = () => {
     }
 
     function prenotaVisita() {
-        navigator(`/menuVisite`)
+        navigator(`/menuVisite/${idPaziente}`)
     }
 
-    function visualizzaReferti(idPaziente) {
+    function visualizzaReferti() {
         navigator(`/visualizzaCartella/${idPaziente}`)
     }
 
@@ -41,10 +41,16 @@ const AppuntamentiPaziente = () => {
         navigator(`/edit-paziente/${idPaziente}`)
     }
 
+    function cancellaAppuntamento(id_app) {
+        deleteAppuntamento(id_app).then(() => {
+            getAllAppuntamentiPaziente(idPaziente);
+        })
+    }
+
     function pagaAppuntamento(appuntamento) {
         appuntamento.pagato = true;
         updateAppuntamento(appuntamento.id_app, appuntamento).then(() => {
-            getAllAppuntamentiPaziente();
+            getAllAppuntamentiPaziente(idPaziente);
         })
     }
 
@@ -83,6 +89,7 @@ const AppuntamentiPaziente = () => {
                                             <td>{appuntamento.id_slot}</td>
                                             <td>
                                                 <button className='btn btn-info' onClick={() => pagaAppuntamento(appuntamento)}>Paga</button>
+                                                <button className='btn btn-danger' onClick={() => cancellaAppuntamento(appuntamento.id_app)}>Cancella</button>
                                             </td>
                                         </tr>
                                     )

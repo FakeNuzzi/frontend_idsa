@@ -23,8 +23,12 @@ const VisualizzaCartella = () => {
         })
     }
 
-    function back2Menu() {
-        navigator('/MenuComponent')
+    function exit() {
+        navigator('/')
+    }
+
+    function backAppuntamenti() {
+        navigator(`/appuntamentiPaziente/${idPaziente}`)
     }
 
     return (
@@ -52,7 +56,8 @@ const VisualizzaCartella = () => {
                     }
                 </tbody>
             </table>
-            <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
+            <button className='btn btn-primary mb-2' onClick={backAppuntamenti}>Torna agli appuntamenti</button>
+            <button className='btn btn-danger mb-2' onClick={exit}>Esci</button>
         </div>
     )
 }
