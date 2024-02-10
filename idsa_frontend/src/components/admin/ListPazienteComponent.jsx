@@ -31,7 +31,7 @@ const ListPazienteComponent = () => {
     }
 
     function visualizzaCartella(id_paziente){
-        navigator(`/visualizzaCartella/${id_paziente}`)
+        navigator(`/visualizzaCartellaAdmin/${id_paziente}`)
     }
 
     function back2Menu(){

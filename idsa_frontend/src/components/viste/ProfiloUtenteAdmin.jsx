@@ -1,71 +1,66 @@
-import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
+import { createPaziente, getPaziente, updatePaziente } from '../../adminServices/PazienteService'
 import { useNavigate, useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
-export default function ProfiloMedico() {
-    const [agreed, setAgreed] = useState(false)
-
+export default function ProfiloUtenteAdmin() {
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
     const [data_n, setDataNascita] = useState('')
     const [cf, setCodiceFiscale] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [stipendio, setStipendio] = useState('')
-    const [specializ, setSpecializ] = useState('')
 
-    const { id_medico } = useParams();
+    const { id_paziente } = useParams();
 
     const [errors, setErrors] = useState({
         nome: '',
         cognome: '',
         data_n: '',
         cf: '',
-        email: '',
-        stipendio: '',
-        specializ: '',
+        email:'',
+        password: ''
     })
 
     const navigator = useNavigate();
 
     useEffect(() => {
-        if (id_medico) {
-            getMedico(id_medico).then((response) => {
+        if (id_paziente) {
+            getPaziente(id_paziente).then((response) => {
                 setNome(response.data.nome);
                 setCognome(response.data.cognome);
                 setDataNascita(response.data.data_n);
                 setCodiceFiscale(response.data.cf);
                 setEmail(response.data.email);
                 setPassword(response.data.password);
-                setStipendio(response.data.stipendio);
-                setSpecializ(response.data.specializ);
             }).catch(error => {
                 console.error(error);
             })
         }
-    }, [id_medico])
+    }, [id_paziente])
 
-    function saveOrUpdateMedico(e) {
+    function saveOrUpdatePaziente(e) {
         e.preventDefault();
-        if (validateForm()) {   
-            const medico = { nome, cognome, data_n, cf, email, password, stipendio, specializ }
-            if (id_medico) {
-                updateMedico(id_medico, medico).then((response) => {
-                    navigator(`/appuntamentiMedico/${id_medico}`)
+        if (validateForm()) {
+            
+            const paziente = { nome, cognome, data_n, cf, email, password }
+            if (id_paziente) {
+                updatePaziente(id_paziente, paziente).then((response) => {
+                    navigator(`/pazienti`)
                 }).catch(error => {
                     console.error(error);
                 })
             }
             else {
-                createMedico(medico).then((response) => {
-                    navigator(`/appuntamentiMedico/${id_medico}`)
+                createPaziente(paziente).then((response) => {
+                    console.log(response.data);
+                    navigator(`/pazienti`)
                 }).catch(error => {
                     console.error(error);
                 })
             }
 
         }
-        navigator(`/medici`)
+        navigator(`/pazienti`)
     }
 
     function validateForm() {
@@ -85,6 +80,14 @@ export default function ProfiloMedico() {
         }
         else {
             errorsCopy.cognome = 'Inserire cognome';
+            valid = false;
+        }
+
+        if (data_n.trim()) {
+            errorsCopy.data_n = '';
+        }
+        else {
+            errorsCopy.data_n = 'Inserire data di nascita';
             valid = false;
         }
 
@@ -109,29 +112,22 @@ export default function ProfiloMedico() {
             valid = false;
         }
 
-        if (specializ.trim()) {
-            errorsCopy.specializ = '';
-        } else {
-            errorsCopy.specializ = 'Inserire specializzazione';
-            valid = false;
-        }
-
         setErrors(errorsCopy);
 
         return valid;
     }
 
     function pageTitle() {
-        if (id_medico) {
-            return <h2 className='text-center'>Update Medico</h2>
+        if (id_paziente) {
+            return <h2 className='text-center'>Update Paziente</h2>
         }
         else {
-            return <h2 className='text-center'>Add Medico</h2>
+            return <h2 className='text-center'>Add Paziente</h2>
         }
     }
 
     function tornaIndietro() {
-        navigator(`/appuntamentiMedico`)
+        navigator(`/pazienti`)
     }
 
     return (
@@ -229,43 +225,12 @@ export default function ProfiloMedico() {
                                     value={password}
                                     className={`form-control ${ errors.password ? 'is-invalid': '' }`}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    autoComplete='current-password'
                                 />
                                 { errors.password && <div className='invalid-feedback'> { errors.password} </div> }
                             </div>
 
-                            <div className='form-group mb-2'>
-                                <label htmlFor='stipendio'>Stipendio:</label>
-                                <input
-                                    id='stipendio'
-                                    type='number'
-                                    placeholder='Inserire stipendio'
-                                    name='stipendio'
-                                    value={stipendio}
-                                    className={`form-control ${ errors.stipendio ? 'is-invalid': '' }`}
-                                    onChange={(e) => setStipendio(e.target.value)}
-                                    autoComplete='stipendio'
-                                />
-                                { errors.stipendio && <div className='invalid-feedback'> { errors.stipendio} </div> }
-                            </div>
-
-                            <div className='form-group mb-2'>
-                                <label htmlFor='specializ'>Specializzazione:</label>
-                                <input
-                                    id='specializ'
-                                    type='text'
-                                    placeholder='Inserire specializzazione'
-                                    name='specializ'
-                                    value={specializ}
-                                    className={`form-control ${ errors.specializ ? 'is-invalid': '' }`}
-                                    onChange={(e) => setSpecializ(e.target.value)}
-                                    autoComplete='specializ'
-                                />
-                                { errors.specializ && <div className='invalid-feedback'> { errors.specializ} </div> }
-                            </div>
-
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
-                            <button className='btn btn-success' onClick={saveOrUpdateMedico} >Submit</button>
+                            <button className='btn btn-success' onClick={saveOrUpdatePaziente} >Submit</button>
                         </form>
     
                     </div>

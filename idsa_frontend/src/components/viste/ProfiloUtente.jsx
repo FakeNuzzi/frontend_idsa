@@ -1,13 +1,6 @@
-
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Switch } from '@headlessui/react'
 import { createPaziente, getPaziente, updatePaziente } from '../../adminServices/PazienteService'
 import { useNavigate, useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 export default function ProfiloUtente() {
     const [nome, setNome] = useState('')
@@ -52,22 +45,20 @@ export default function ProfiloUtente() {
             const paziente = { nome, cognome, data_n, cf, email, password }
             if (id_paziente) {
                 updatePaziente(id_paziente, paziente).then((response) => {
-                    navigator(`/pazienti`)
+                    navigator(`/appuntamentiPaziente/${id_paziente}`)
                 }).catch(error => {
                     console.error(error);
                 })
             }
             else {
                 createPaziente(paziente).then((response) => {
-                    console.log(response.data);
-                    navigator(`/pazienti`)
+                    navigator(`/appuntamentiPaziente/${id_paziente}`)
                 }).catch(error => {
                     console.error(error);
                 })
             }
 
         }
-        navigator(`/pazienti`)
     }
 
     function validateForm() {

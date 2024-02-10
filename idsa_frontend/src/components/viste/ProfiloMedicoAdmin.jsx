@@ -1,6 +1,18 @@
+
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Switch } from '@headlessui/react'
 import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
 import { useNavigate, useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+
+
+/**
+*questa e la pagina in cui compaiono le informazioni dell utente viene acceduta sia dalutente che dagli admin
+ */
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
 
 export default function ProfiloMedico() {
     const [agreed, setAgreed] = useState(false)
@@ -51,14 +63,14 @@ export default function ProfiloMedico() {
             const medico = { nome, cognome, data_n, cf, email, password, stipendio, specializ }
             if (id_medico) {
                 updateMedico(id_medico, medico).then((response) => {
-                    navigator(`/appuntamentiMedico/${id_medico}`)
+                    navigator(`/medici`)
                 }).catch(error => {
                     console.error(error);
                 })
             }
             else {
                 createMedico(medico).then((response) => {
-                    navigator(`/appuntamentiMedico/${id_medico}`)
+                    navigator(`/medici`)
                 }).catch(error => {
                     console.error(error);
                 })

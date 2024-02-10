@@ -74,6 +74,7 @@ const AppuntamentiPaziente = () => {
                                 <tr>
                                         <th>Pagato</th>
                                         <th>Medico</th>
+                                        <th>Vedi Medico</th>
                                         <th>Visita</th>
                                         <th>Slot</th>
                                         <th>Azioni</th>
@@ -85,6 +86,9 @@ const AppuntamentiPaziente = () => {
                                         <tr key={appuntamento.id_app}>
                                             <td>{appuntamento.pagato ? 'Yes' : 'No'}</td>
                                             <td>{appuntamento.id_medico}</td>
+                                            <td>
+                                                <button className='btn btn-info' onClick={() => navigator(`/visualizzaMedico/${appuntamento.id_medico}/${idPaziente}`)}>Informazioni</button>
+                                            </td>
                                             <td>{appuntamento.id_visita}</td>
                                             <td>{appuntamento.id_slot}</td>
                                             <td>

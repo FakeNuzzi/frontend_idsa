@@ -9,8 +9,6 @@ import { listAppuntamenti, deleteAppuntamento } from '../../services/Appuntament
 const AppuntamentiHr = () => {
 
     const [appuntamenti, setAppuntamneti] = useState([])
-    const [tipoVis, setTipoVisita] = useState('')
-    const [dataOra, setDataOra] = useState('')
 
     const navigator = useNavigate();
 
@@ -42,16 +40,12 @@ const AppuntamentiHr = () => {
         })
     }
 
-    function back2Menu() {
-        navigator('/MenuComponent')
+    function back2Home() {
+        navigator('/')
     }
 
     function addNewAppuntamento(){
         navigator('/add-appuntamento')
-    }
-
-    function updateAppuntamento(id_appuntamento) {
-        navigator('/edit-appuntamento/' + id_appuntamento)
     }
 
     function removeAppuntamento(id_appuntamento) {
@@ -97,7 +91,7 @@ const AppuntamentiHr = () => {
                     }
                 </tbody>
             </table>
-            <button className='btn btn-primary mb-2' onClick={back2Menu}>Torna al Menu</button>
+            <button className='btn btn-primary mb-2' onClick={back2Home}>Torna alla Home</button>
         </div>
     )
 }

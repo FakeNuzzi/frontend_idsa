@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import { listAppuntamentiMedico } from '../../services/AppuntamentiService'
 import { useNavigate, useParams } from 'react-router-dom'
+import { listRefertiByAppuntamento } from '../../services/RefertoService'
 
 const AppuntamentiMedico = () => {
 
@@ -24,7 +25,19 @@ const AppuntamentiMedico = () => {
     }
 
     function visualizzaProfilo() {
-        navigator(`/edit-medico/1`)
+        navigator(`/edit-medico/${idMedico}`)
+    }
+
+    function scriviRisultato(id_app){
+        listRefertiByAppuntamento(id_app).then((response) => {
+            if (response.data.length === 0){
+                navigator(`/risultatoForm/${id_app}/${idMedico}`)
+            } else {
+                navigator(`/risultatoEdit/${id_app}/${idMedico}/${response.data[0].id_ris}`)
+            }
+        }).catch(error => {
+            console.error(error);
+        })
     }
 
     return (
@@ -49,8 +62,10 @@ const AppuntamentiMedico = () => {
                             <tr>
                                     <th>Id_app</th>
                                     <th>Paziente</th>
+                                    <th>Vedi Paziente</th>
                                     <th>Visita</th>
                                     <th>Slot</th>
+                                    <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,9 +73,15 @@ const AppuntamentiMedico = () => {
                                     appuntamenti.map(appuntamento =>
                                         <tr key={appuntamento.id_app}>
                                             <td>{appuntamento.id_app}</td>
-                                            <td>{appuntamento.id_paziente}</td>
+                                            <td> {appuntamento.id_paziente} </td>    
+                                            <td>    
+                                                <button className='btn btn-info px-4' onClick={() => navigator(`/visualizzaPaziente/${appuntamento.id_paziente}/${idMedico}`)}>Informazioni</button>
+                                            </td>
                                             <td>{appuntamento.id_visita}</td>
                                             <td>{appuntamento.id_slot}</td>
+                                            <td>
+                                                <button className='btn btn-info' onClick={() => scriviRisultato(appuntamento.id_app)}>Risultato</button>
+                                            </td>
                                         </tr>
                                     )
                                 }
