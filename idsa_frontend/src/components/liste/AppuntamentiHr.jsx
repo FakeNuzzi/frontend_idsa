@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getVisita } from '../../services/VisiteService'
 import { getSlot } from '../../services/SlotService'
+
 import { listAppuntamenti, deleteAppuntamento } from '../../services/AppuntamentiService'
 
 
 
 const AppuntamentiHr = () => {
 
-    const [appuntamenti, setAppuntamneti] = useState([])
+    const [appuntamenti, setAppuntamenti] = useState([])
 
     const navigator = useNavigate();
 
@@ -18,23 +19,7 @@ const AppuntamentiHr = () => {
 
     function getAllAppuntamenti() {
         listAppuntamenti().then((response) => {
-            setAppuntamneti(response.data);
-        }).catch(error => {
-            console.error(error);
-        })
-    }
-
-    function getSpecifiche(id_slot,id_visita)
-    {
-
-        getVisita(id_visita).then((response) => {
-            setTipoVisita(response.data.tipoVis);
-        }).catch(error => {
-            console.error(error);
-        })
-
-        getSlot(id_slot).then((response) => {
-            setDataOra(response.data.DataOraslot);
+            setAppuntamenti(response.data);
         }).catch(error => {
             console.error(error);
         })
@@ -49,7 +34,6 @@ const AppuntamentiHr = () => {
     }
 
     function removeAppuntamento(id_appuntamento) {
-        console.log(id_appuntamento);
         deleteAppuntamento(id_appuntamento).then((response) => {
             getAllAppuntamenti();
         }).catch(error => {

@@ -14,7 +14,7 @@ const ListMedicoComponent = () => {
     
     useEffect(() => {
         getAllMedici();
-    }, [])
+    }, [getAllMedici])
 
     function getAllMedici(){
         listMedici().then((response) => {

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1707913163944" clover="3.2.0">
+  <project timestamp="1707913163944" name="All files">
+    <metrics statements="84" coveredstatements="60" conditionals="2" coveredconditionals="1" methods="66" coveredmethods="20" elements="152" coveredelements="81" complexity="0" loc="84" ncloc="84" packages="4" files="7" classes="7"/>
+    <package name="adminServices">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="MedicoService.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/adminServices/MedicoService.jsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.admin">
+      <metrics statements="40" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="30" coveredmethods="10"/>
+      <file name="ListMedicoComponent.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/components/admin/ListMedicoComponent.jsx">
+        <metrics statements="19" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="5"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="48" count="11" type="stmt"/>
+        <line num="69" count="18" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+      </file>
+      <file name="ListPazienteComponent.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/components/admin/ListPazienteComponent.jsx">
+        <metrics statements="21" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="5"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="50" count="8" type="stmt"/>
+        <line num="68" count="6" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.liste">
+      <metrics statements="16" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="12" coveredmethods="10"/>
+      <file name="AppuntamentiHr.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/components/liste/AppuntamentiHr.jsx">
+        <metrics statements="16" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="12" coveredmethods="10"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="9" type="stmt"/>
+        <line num="63" count="15" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="0"/>
+      <file name="AppuntamentiService.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/services/AppuntamentiService.jsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+      <file name="SlotService.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/services/SlotService.jsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+      <file name="VisiteService.jsx" path="/home/francesco/repos/frontend_idsa/idsa_frontend/src/services/VisiteService.jsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
