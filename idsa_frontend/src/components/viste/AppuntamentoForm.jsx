@@ -116,7 +116,7 @@ export default function AppuntamentoForm() {
     }
 
     function tornaIndietro() {
-        navigator(`/appuntamentiAppuntamento`)
+        navigator(`/appuntamentiHr`)
     }
 
     return (

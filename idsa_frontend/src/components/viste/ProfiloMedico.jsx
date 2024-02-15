@@ -63,9 +63,8 @@ export default function ProfiloMedico() {
                     console.error(error);
                 })
             }
-
+            navigator(`/medici`)
         }
-        navigator(`/medici`)
     }
 
     function validateForm() {
