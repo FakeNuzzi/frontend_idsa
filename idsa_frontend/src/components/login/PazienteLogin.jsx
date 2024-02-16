@@ -57,7 +57,7 @@ export default function PazienteLogin(){
             <div className='row'>
                 <div className='card col-md-6 offset-md-3 offset-md-3'> { 'Login Paziente' }
                     <div className='card-body'>
-                        <form onSubmit={(e) => loginMedicoEvaluation(email, password, e)}>
+                        <form onSubmit={(e) => loginPazienteEvaluation(email, password, e)}>
                             <div className='form-group mb-2'>
                                 <label htmlFor='email'>Email:</label>
                                 <input
@@ -67,6 +67,7 @@ export default function PazienteLogin(){
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
+                                {errors.email && <div>{errors.email}</div>}
                             </div>
                             <div className='form-group mb-2'>
                                 <label htmlFor='password'>Password:</label>
@@ -77,6 +78,7 @@ export default function PazienteLogin(){
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                {errors.password && <div>{errors.password}</div>}
                             </div>
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
                             <button className='btn btn-success' onClick={(e) => loginPazienteEvaluation(email, password, e)} >Submit</button>

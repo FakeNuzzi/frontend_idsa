@@ -67,6 +67,7 @@ export default function MedicoLogin(){
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
+                                { errors.email && <div className='invalid-feedback'>{ errors.email }</div> }
                             </div>
                             <div className='form-group mb-2'>
                                 <label htmlFor='password'>Password:</label>
@@ -77,6 +78,7 @@ export default function MedicoLogin(){
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                { errors.password && <div className='invalid-feedback'>{ errors.password }</div> }
                             </div>
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
                             <button className='btn btn-success' onClick={(e) => loginMedicoEvaluation(email, password, e)} >Submit</button>

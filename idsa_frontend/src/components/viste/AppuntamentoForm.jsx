@@ -47,22 +47,13 @@ export default function AppuntamentoForm() {
         if (validateForm()) {
             const appuntamento = {
                 pagato, id_paziente, id_medico, id_visita, id_slot}
-            if (id_app) {
-                updateAppuntamento(id_app, appuntamento).then((response) => {
-                }).catch(error => {
-                    console.error(error);
-                })
-            }
-            else {
-                console.log(appuntamento)
-                createAppuntamento(appuntamento).then((response) => {     
-                }).catch(error => {
-                    console.error(error);
-                })
-            }
-
+            console.log(appuntamento)
+            createAppuntamento(appuntamento).then((response) => {     
+            }).catch(error => {
+                console.error(error);
+            })
+            navigator(`/appuntamentiHr`)
         }
-        navigator(`/appuntamentiHr`)
     }
 
     function validateForm() {
@@ -89,7 +80,7 @@ export default function AppuntamentoForm() {
             errorsCopy.id_visita = '';
         }
         else {
-            errorsCopy.visita = 'Inserire visita';
+            errorsCopy.id_visita = 'Inserire visita';
             valid = false;
         }
 

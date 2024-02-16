@@ -55,6 +55,7 @@ export default function HrLogin(){
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                { errors.password && <div className='invalid-feedback'>{ errors.password }</div> }
                             </div>
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
                             <button className='btn btn-success' onClick={(e) => loginHrEvaluation(password, e)}>Submit</button>

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/AppuntamentiService.jsx</title>
+    <title>Code coverage report for services/RefertoService.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> AppuntamentiService.jsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> RefertoService.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -79,39 +79,42 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios';
 &nbsp;
-const REST_API_BASE_URL = 'http://localhost:8080/api/appuntamenti';
+const REST_API_BASE_URL = 'http://localhost:8080/api/risultati';
 &nbsp;
-export const listAppuntamenti = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL);</span>
+export const listReferti = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL);</span>
 &nbsp;
-export const createAppuntamento = <span class="fstat-no" title="function not covered" >(a</span>ppuntamento) =&gt; <span class="cstat-no" title="statement not covered" >axios.post(REST_API_BASE_URL, appuntamento);</span>
+export const createReferto = <span class="fstat-no" title="function not covered" >(r</span>eferto) =&gt; <span class="cstat-no" title="statement not covered" >axios.post(REST_API_BASE_URL, referto);</span>
 &nbsp;
-export const getAppuntamento = <span class="fstat-no" title="function not covered" >(i</span>d_app) =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL + '/' + id_app);</span>
+export const getReferto = <span class="fstat-no" title="function not covered" >(i</span>d_referto) =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL + '/' + id_referto);</span>
 &nbsp;
-export const updateAppuntamento = <span class="fstat-no" title="function not covered" >(i</span>d_app, appuntamneto) =&gt; <span class="cstat-no" title="statement not covered" >axios.put(REST_API_BASE_URL + '/' + id_app, appuntamneto);</span>
+export const updateReferto = <span class="fstat-no" title="function not covered" >(i</span>d_referto, referto) =&gt; <span class="cstat-no" title="statement not covered" >axios.put(REST_API_BASE_URL + '/' + id_referto, referto);</span>
 &nbsp;
-export const deleteAppuntamento = <span class="fstat-no" title="function not covered" >(i</span>d_app) =&gt; <span class="cstat-no" title="statement not covered" >axios.delete(REST_API_BASE_URL + '/' + id_app);</span>
+export const deleteReferto = <span class="fstat-no" title="function not covered" >(i</span>d_referto) =&gt; <span class="cstat-no" title="statement not covered" >axios.delete(REST_API_BASE_URL + '/' + id_referto);</span>
 &nbsp;
-export const listAppuntamentiMedico = <span class="fstat-no" title="function not covered" >(i</span>d_medico) =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL + '/medico/' + id_medico);</span>
+export const listRefertiByPaziente = <span class="fstat-no" title="function not covered" >(i</span>d_paziente) =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL + '/paziente/' + id_paziente);</span>
 &nbsp;
-export const listAppuntamentiPaziente = <span class="fstat-no" title="function not covered" >(i</span>d_paziente) =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL + '/paziente/' + id_paziente);</span></pre></td></tr></table></pre>
+export const listRefertiByAppuntamento = <span class="fstat-no" title="function not covered" >(i</span>d_app) =&gt; <span class="cstat-no" title="statement not covered" >axios.get(REST_API_BASE_URL + '/appuntamento/' + id_app);</span>
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

@@ -5,7 +5,6 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppuntamentoForm from '../components/viste/AppuntamentoForm';
 import { createAppuntamento, getAppuntamento, updateAppuntamento } from '../services/AppuntamentiService';
-import { act } from 'react-dom/test-utils';
 
 jest.mock('../services/AppuntamentiService');
 

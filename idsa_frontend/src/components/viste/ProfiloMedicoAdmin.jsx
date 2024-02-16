@@ -1,22 +1,8 @@
-
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Switch } from '@headlessui/react'
 import { createMedico, getMedico, updateMedico } from '../../adminServices/MedicoService'
 import { useNavigate, useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
-
-/**
-*questa e la pagina in cui compaiono le informazioni dell utente viene acceduta sia dalutente che dagli admin
- */
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
-
 export default function ProfiloMedico() {
-    const [agreed, setAgreed] = useState(false)
-
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
     const [data_n, setDataNascita] = useState('')

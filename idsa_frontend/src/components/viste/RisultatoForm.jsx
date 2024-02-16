@@ -49,22 +49,28 @@ export default function RisultatoForm() {
                     console.error(error);
                 })
             }
+            navigator(`/appuntamentiMedico/${idMedico}`)
         }
-        navigator(`/appuntamentiMedico/${idMedico}`)
     }
 
     function validateForm() {
         let valid = true;
         const errorsCopy = {...errors}
 
-        if (referto.trim() === '') {
-            formIsValid = false;
-            errorsCopy.referto = '*Please enter the referto.';
+        if (referto.trim()) {
+            errorsCopy.referto = '';
+        }
+        else {
+            errorsCopy.referto = 'Inserire referto';
+            valid = false;
         }
 
-        if (prescr.trim() === ''){
-            formIsValid = false;
-            errorsCopy.referto = '*Please enter the prescr.';
+        if (prescr.trim()) {
+            errorsCopy.prescr = '';
+        }
+        else {
+            errorsCopy.prescr = 'Inserire prescrizione';
+            valid = false;
         }
 
         setErrors(errorsCopy);
@@ -85,14 +91,14 @@ export default function RisultatoForm() {
                         <form>
                             <div className='form-group mb-2'>
                                 <label htmlFor='referto'>Referto:</label>
-                                <input type='text' className='form-control' id='referto' value={referto} onChange={(e) => setReferto(e.target.value)} />
+                                <input type='text' placeholder="Inserisci referto" className='form-control' id='referto' value={referto} onChange={(e) => setReferto(e.target.value)} />
                             </div>
-
+                            { errors.referto && <div className='text-danger'>{errors.referto}</div> }
                             <div className='form-group mb-2'>
                                 <label htmlFor='prescr'>Prescrizione:</label>
-                                <input type='text' className='form-control' id='prescr' value={prescr} onChange={(e) => setPrescr(e.target.value)} />
+                                <input type='text' placeholder="Inserisci prescrizione" className='form-control' id='prescr' value={prescr} onChange={(e) => setPrescr(e.target.value)} />
                             </div>
-
+                            { errors.prescr && <div className='text-danger'>{errors.prescr}</div> }
                             <button className='btn btn-danger' onClick={tornaIndietro} >Go Back</button>
                             <button className='btn btn-success' onClick={saveRisultato} >Submit</button>
                         </form>
