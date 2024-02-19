@@ -103,20 +103,3 @@ test('navigates to the home', async () => {
 
   expect(mockNavigator).toHaveBeenCalledWith('/');
 });
-
-/*
-test('it logs an error when something goes wrong', () => {
-  // Create a spy on console (console.error in this case)
-  const consoleSpy = jest.spyOn(console, 'error');
-
-  // Render the component (replace with your actual props)
-  render(<AppuntamentiHr data={null}  />);
-
-  // Check if console.error has been called
-  expect(consoleSpy).toHaveBeenCalled();
-
-  // Clean up the spy
-  consoleSpy.mockRestore();
-  
-});
-*/

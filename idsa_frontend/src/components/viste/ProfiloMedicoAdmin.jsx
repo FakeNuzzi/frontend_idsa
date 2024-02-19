@@ -129,7 +129,7 @@ export default function ProfiloMedico() {
     }
 
     function tornaIndietro() {
-        navigator(`/appuntamentiMedico`)
+        navigator(`/medici`)
     }
 
     return (

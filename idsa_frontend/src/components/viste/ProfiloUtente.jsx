@@ -125,7 +125,7 @@ export default function ProfiloUtente() {
     }
 
     function tornaIndietro() {
-        navigator(`/pazienti`)
+        navigator(`/appuntamentiPaziente/${id_paziente}`)
     }
 
     return (
