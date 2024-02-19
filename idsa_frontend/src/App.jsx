@@ -53,6 +53,8 @@ function App() {
             <Route path='/edit-medico/:id_medico' element={<ProfiloMedico />}></Route>
             {/* // http://localhost:3000/admin-medico/1 */}
             <Route path='/admin-medico/:id_medico' element={<ProfiloMedicoAdmin />}></Route>
+            {/* // http://localhost:3000/admin-utente/1 */}
+            <Route path='/admin-utente/:id_paziente' element={<ProfiloUtenteAdmin />}></Route>
             {/* // http://localhost:3000/add-appuntamento */}
             <Route path='/add-appuntamento' element={<AppuntamentoForm />}></Route>
             {/* // http://localhost:3000/edit-appuntamento/1 */}

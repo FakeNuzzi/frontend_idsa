@@ -23,11 +23,11 @@ const ListPazienteComponent = () => {
     }
 
     function addNewPaziente(){
-        navigator('/add-paziente-admin')
+        navigator('/add-paziente')
     }
 
     function updatePaziente(id_paziente){
-        navigator(`/edit-paziente-admin/${id_paziente}`)
+        navigator(`/admin-utente/${id_paziente}`)
     }
 
     function visualizzaCartella(id_paziente){
