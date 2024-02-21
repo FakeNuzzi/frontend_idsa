@@ -1,6 +1,5 @@
 describe('Add Medico Page', () => {
     beforeEach(() => {
-        // Assuming you're serving your app locally on port 3000
         cy.visit('http://localhost:3000/add-medico');
     });
 

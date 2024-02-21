@@ -13,7 +13,10 @@ describe('ProfiloUtente', () => {
 
     expect(screen.getByLabelText('First Name:')).toHaveValue('')
     expect(screen.getByLabelText('Last Name:')).toHaveValue('')
-    // ...assert the rest of the fields...
+    expect(screen.getByLabelText('Date of Birth:')).toHaveValue('')
+    expect(screen.getByLabelText('Codice Fiscale:')).toHaveValue('')
+    expect(screen.getByLabelText('Email:')).toHaveValue('')
+    expect(screen.getByLabelText('Password:')).toHaveValue('')
   })
 
   test('fetches and displays data when id_paziente is provided', async () => {
